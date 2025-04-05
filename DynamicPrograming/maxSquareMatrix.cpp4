@@ -1,0 +1,50 @@
+#include<climits>
+int findMaxSquareWithAllZeros(int **arr, int n, int m)
+{
+	//Write your code here
+	int** op=new int*[n];
+	for(int i=0;i<n;i++)
+	{
+		op[i]=new int[m];
+	}
+	for(int i=0;i<n;i++)
+	{
+		if(arr[i][0]==0)
+		   op[i][0]=1;
+		else
+		  op[i][0]=0;   
+	}
+        for (int j = 0; j < m; j++) {
+          if (arr[0][j] == 0)
+            op[0][j] = 1;
+          else
+            op[0][j] = 0;
+        }
+		for(int i=1;i<n;i++)
+		{
+			for(int j=1;j<m;j++)
+			{
+				if(arr[i][j]==1)
+				   op[i][j]=0;
+                 else {
+                      int k1 = op[i - 1][j - 1];
+                      int k2 = op[i - 1][j];
+                     int k3 = op[i][j - 1];
+                                 // cout<<k1<<" "<<k2<<" "<<k3<<endl;
+                 op[i][j] = 1 + min(k1, min(k2, k3));
+               }
+                 }
+		}
+		int ans=0;
+		for(int i=0;i<n;i++)
+		{
+			for(int j=0;j<m;j++)
+			{
+				//cout<<op[i][j]<<" ";
+				if(op[i][j]>ans)
+				  ans=op[i][j];
+			}
+		//	cout<<endl;
+		}
+		return ans;
+}
