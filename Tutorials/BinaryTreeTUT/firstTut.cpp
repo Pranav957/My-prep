@@ -5,8 +5,8 @@ template<typename T>
 class BinaryTreeNode{
     public:
    T data;
-   BinaryTreeNode* left;
-   BinaryTreeNode* right;
+   BinaryTreeNode* left;    // BinaryTree<T>* left;
+   BinaryTreeNode* right; // BinaryTree<T>* right;
    
    BinaryTreeNode(T data)
    {
@@ -46,6 +46,15 @@ void inOrderTrav(BinaryTreeNode<int>* root)
      inOrderTrav(root->left);
      cout<<root->data<<" ";
      inOrderTrav(root->right);
+}
+int getHeight(BinaryTree<int>* root)
+{
+    if(root==NULL)
+      return 0;
+      
+     int leftH= getHeight(root->left);
+      int rightH=getHeight(root->right);
+      return max(leftH,rightH)+1;
 }
 void preOrderTrav(BinaryTreeNode<int>* root)
 {
@@ -157,6 +166,37 @@ BinaryTreeNode<int>* constructTree(int* preOrder, int* inOrder,int inS,int inE,i
     root->right=constructTree(preOrder,inOrder,rinS,rinE,rpreS,rpreE);
     
     return root;
+}
+
+int diameterOfTree(BinaryTree<int>* root)
+{
+    if(root==NULL)
+      return 0;
+      
+    int leftHeight=getHeight(root->left);
+    int rightHeight=getHeight(root->right);
+    int leftD=diameterOfTree(root->left);
+    int rightD=diameterOfTree(root->right);
+    
+    return max(1+(leftHeight+rightHeight),max(leftD,rightD));
+}
+
+pair<int,int> diameterObtimised(BinaryTree<int>* root)
+{
+    if(root==NULL)
+    {
+        pair<int,int>p(0,0);
+        return p;
+    }
+    
+    pair<int,int> dl=diameterObtimised(root->left);
+    pair<int,int>  dr=diameterObtimised(root->right);
+    
+    
+    pair<int,int> res;
+    res.first=1+max(dl.first,dr.first);
+    res.second=max((dl.first+dr.first),max(dl.second,dr.second));
+    return res;
 }
 
 int main()
