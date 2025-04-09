@@ -178,7 +178,7 @@ int diameterOfTree(BinaryTree<int>* root)
     int leftD=diameterOfTree(root->left);
     int rightD=diameterOfTree(root->right);
     
-    return max(1+(leftHeight+rightHeight),max(leftD,rightD));
+    return max((leftHeight+rightHeight),max(leftD,rightD));
 }
 
 pair<int,int> diameterObtimised(BinaryTree<int>* root)
