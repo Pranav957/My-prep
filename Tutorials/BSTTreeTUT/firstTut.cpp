@@ -248,6 +248,52 @@ class Node{
       }
 };
 
+class pairX
+{
+  public:
+  Node<int>* head;
+  Node<int>* tail;
+  
+  pairX()
+  {
+      head=NULL;
+      tail=NULL;
+  }
+};
+
+pairX LinkListOfBST1(BinaryTree<int>* root)
+{
+    
+    if(root==NULL)
+    {
+       pairX p;
+        p.head=NULL;
+        p.tail=NULL;
+        return p;
+    }
+    
+    pairX leftList=LinkListOfBST1(root->left);
+    pairX rightList=LinkListOfBST1(root->right);
+    
+    Node<int>* node=new Node<int>(root->data);
+    
+    if(leftList.head==NULL)
+    {
+      leftList.head=node;
+      leftList.tail=node;
+    }
+    else{
+        leftList.tail->next=node;
+        leftList.tail=node;
+    }
+    node->next=rightList.head;
+    if(rightList.head)
+        leftList.tail=rightList.tail;
+        
+   return leftList;        
+       
+}
+
 pair<Node<int>*,Node<int>*> LinkListOfBST(BinaryTree<int>* root)
 {
     
@@ -271,15 +317,46 @@ pair<Node<int>*,Node<int>*> LinkListOfBST(BinaryTree<int>* root)
     }
     else{
         leftList.second->next=node;
-        leftList.second-=node
+        leftList.second=node;
     }
+    node->next=rightList.first;
     if(rightList.first)
+        leftList.second=rightList.second;
+        
+   return leftList;        
        
+}
+
+vector<int>* getPathtoNode(BinaryTree<int>* root, int data)
+{
+    if(root==NULL)
+       return NULL;
+       
+     if(root->data==data)
+     {
+         vector<int>* v=new vector<int>();
+         v->push_back(root->data);
+         return v;
+     }
+     
+     vector<int>* leftOutput=getPathtoNode(root->left,data);
+     if(leftOutput!=NULL)
+     {
+         leftOutput->push_back(root->data);
+         return leftOutput;
+     }
+     vector<int>* rightOutput=getPathtoNode(root->right,data);
+     if(rightOutput!=NULL)
+     {
+         rightOutput->push_back(root->data);
+         return rightOutput;
+     }
+     return NULL;
 }
 
 int main()
 {
-    // BinaryTree<int>* root=takeInput(); // 20 10 40 5 15 30 50 -1 7 12 18 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+    BinaryTree<int>* root=takeInput(); // 20 10 40 5 15 30 50 -1 7 12 18 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
     // printTree(root);
     // cout<<getHeight(root)<<" ";
     
@@ -287,13 +364,25 @@ int main()
     // cout<<endl;
     
     // printElementsInRange(root,2,8);
-    // printTree(root);
+    // 
     // cout<<endl;
     
     int arr[10]={1,2,3,4,5,6,7,8,9,10};
     
     BinaryTree<int>* node=constructBST(arr,0,9);
     printTree(node);
+    vector<int>* v=getPathtoNode(root,15);
+    for(int i=0;i<v->size();i++)
+        cout<<v->at(i)<<" ";
+    
+    // pair<Node<int>*,Node<int>*> p=LinkListOfBST(root);
+    //  pairX p=LinkListOfBST1(root);
+    // Node<int>* temp=p.head;
+    // while(temp!=NULL)
+    // {
+    // cout<<temp->data<<" ";
+    // temp=temp->next;
+    // }
     
 //   if(isBST3(root))
 //      cout<<"true"<<" ";
