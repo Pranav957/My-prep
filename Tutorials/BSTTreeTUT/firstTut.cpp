@@ -354,9 +354,169 @@ vector<int>* getPathtoNode(BinaryTree<int>* root, int data)
      return NULL;
 }
 
+class BST{
+    BinaryTree<int>* node;
+    
+    void printHelper(BinaryTree<int>* root)
+    {
+        if(root==NULL)
+      return;
+      
+      cout<<root->data<<": ";
+      
+      if(root->left)
+      {
+          cout<<root->left->data<<" ";
+       
+      } 
+       
+     if(root->right)
+    {
+        cout<<root->right->data<<" ";
+    }  
+    cout<<endl;
+    printHelper(root->left);
+    printHelper(root->right);
+      
+    }
+    
+    bool searchINBSTHelper(BinaryTree<int>* root,int x)
+    {
+         if(root==NULL)
+      return false;
+      
+      if(root->data==x)
+       return true;
+       
+       if(x<root->data)
+         return SearchInBST(root->left,x);
+       else
+         return SearchInBST(root->right,x);
+         
+    }
+    
+    BinaryTree<int>* insertINBSTHelper(BinaryTree<int>* root,int data)
+    {
+        if(root==NULL)
+        {
+            BinaryTree<int>* newNode=new BinaryTree<int>(data);
+            return newNode;
+        }
+        
+        if(data<root->data)
+        {
+            root->left=insertINBSTHelper(root->left,data);
+        }
+        else 
+          root->right=insertINBSTHelper(root->right,data);
+          return root;
+    }
+    
+    BinaryTree<int>* removeFromBSTHelper(BinaryTree<int>* root, int data)
+    {
+        if(root==NULL)
+          return NULL;
+          
+        if(data<root->data)
+           {
+               root->left=removeFromBSTHelper(root->left,data);
+               return root;
+           }
+           
+        else if(data>root->data)
+          {
+              root->right=removeFromBSTHelper(root->right,data);
+              return root;
+          }
+        else{
+             if(root->left==NULL && root->right==NULL)
+              {
+                  delete root;
+                  return NULL;
+              }
+            
+            if(root->left==NULL)
+            {
+                BinaryTree<int>* node=root->right;
+                root->right=NULL;
+                delete root;
+                return node;
+                
+            }
+            else if(root->right==NULL)
+            {
+                BinaryTree<int>* node=root->left;
+                root->left=NULL;
+                delete root;
+                return node;
+            }
+            else{
+                BinaryTree<int>* minNode=root->right;
+                while(minNode->left!=NULL)
+                   minNode=minNode->left;
+                 
+                 int rightMin=minNode->data;
+                 root->data=rightMin;
+                 root->right=removeFromBSTHelper(root->right,rightMin);
+                 return root;
+            }
+            
+        }
+          
+    }
+    
+    public:
+     BST()
+     {
+         node=NULL;
+     }
+     ~BST()
+     {
+         delete node;
+     }
+     
+     void insertINBST(int data)
+     {
+         node=insertINBSTHelper(node,data);
+     }
+     void removeFromBST(int data)
+     {
+         node=removeFromBSTHelper(node,data);
+     }
+     bool searchINBST(int data)
+     {
+         return searchINBSTHelper(node,data);
+     }
+     void prntINBST()
+     {
+         printHelper(node);
+     }
+};
+
 int main()
 {
-    BinaryTree<int>* root=takeInput(); // 20 10 40 5 15 30 50 -1 7 12 18 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+    // BinaryTree<int>* root=takeInput(); // 20 10 40 5 15 30 50 -1 7 12 18 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+    BST b1;
+    
+    
+        b1.insertINBST(60);
+        b1.insertINBST(15);
+        b1.insertINBST(18);
+        b1.insertINBST(70);
+        b1.insertINBST(8);
+        b1.insertINBST(12);
+        b1.insertINBST(65);
+        b1.insertINBST(80);
+        
+        b1.prntINBST();
+        
+        cout<<"**************************************************"<<endl;
+        
+        b1.removeFromBST(15);
+        
+        b1.prntINBST();
+        
+    
     // printTree(root);
     // cout<<getHeight(root)<<" ";
     
@@ -367,13 +527,13 @@ int main()
     // 
     // cout<<endl;
     
-    int arr[10]={1,2,3,4,5,6,7,8,9,10};
+    // int arr[10]={1,2,3,4,5,6,7,8,9,10};
     
-    BinaryTree<int>* node=constructBST(arr,0,9);
-    printTree(node);
-    vector<int>* v=getPathtoNode(root,15);
-    for(int i=0;i<v->size();i++)
-        cout<<v->at(i)<<" ";
+    // BinaryTree<int>* node=constructBST(arr,0,9);
+    // printTree(node);
+    // vector<int>* v=getPathtoNode(root,15);
+    // for(int i=0;i<v->size();i++)
+    //     cout<<v->at(i)<<" ";
     
     // pair<Node<int>*,Node<int>*> p=LinkListOfBST(root);
     //  pairX p=LinkListOfBST1(root);
