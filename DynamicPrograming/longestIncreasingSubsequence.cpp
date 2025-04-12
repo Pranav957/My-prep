@@ -48,3 +48,35 @@ int longestIncreasingSubsequence(int* input, int n) {
 	delete output;
 	return best;
 }
+
+
+
+
+
+
+
+
+
+//***************************************************LOGESTSUBSEQUENCE"******************************************************************************
+#include<bits/stdc++.h>
+using namespace std;
+int longestSubsequence(int* arr, int n,int max,vector<int> v) {
+	// Write your code here
+	if(n==0)
+	{
+		if(v.size()>max)
+		 {
+			// cout<< v.size()<<" ";
+			  max= v.size();
+		 }
+		 return max;
+	}
+    max=longestSubsequence(arr,n-1,max, v);
+   v.push_back(arr[n-1]);
+  return  longestSubsequence(arr,n-1,max,v);
+}
+int longestSubsequence(int* arr, int n) {
+	// Write your code here
+	vector<int> v;
+	return longestSubsequence(arr,n,0,v);
+}
