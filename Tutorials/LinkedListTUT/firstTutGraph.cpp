@@ -33,7 +33,7 @@ void printBFS(int ** edges, int n,bool* visited, int sv)
       cout<<vertex<<" ";
       for(int i=0;i<n;i++)
       {
-        if(edges[sv][i]==1 && !visited[i])
+        if(edges[vertex][i]==1 && !visited[i])
          {
            pendingVertices.push(i);
            visited[i]=true;
@@ -73,6 +73,12 @@ int main()
        visited[i]=false;
      
      printBFS(edges,n,visited,0);
+
+     for(int i=1;i<n;i++)
+     {
+       if(visited[i]==false)
+        printBFS(edges,n,visited,i);
+     }
      
      delete [] visited;
      for(int i=0;i<n;i++)
