@@ -45,8 +45,8 @@ void printBFS(int ** edges, int n,bool* visited, int sv)
 
 bool Haspath(int** edges, int n,int st,int ed,bool* visited)
 {
-     visited[st]=true;
-     if(st==ed)
+     visited[st]=true;       //if(edges[st][ed]==1)                         
+     if(st==ed)                // return true;
       return true;
 
      for(int i=0;i<n;i++)
