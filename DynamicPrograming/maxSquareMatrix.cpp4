@@ -1,4 +1,4 @@
-#include<climits>
+#include<climits>  // maximum square matrix ending at ij
 int findMaxSquareWithAllZeros(int **arr, int n, int m)
 {
 	//Write your code here
