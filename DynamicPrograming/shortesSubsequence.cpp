@@ -1,5 +1,5 @@
 #include<climits>
-#include<bits/stdc++.h>
+#include<bits/stdc++.h>  //assume first char of s is part of subsequence and not part of subsequence
  int dp[1001][1001];
  //memset(dp, -1, sizeof(dp));
  
