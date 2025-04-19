@@ -77,3 +77,29 @@ int main()
 
     return 0;
 }
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>""Problems"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+	bool helperCheckAB(char input[],int index)
+{
+	if(input[index]=='\0')
+	 return true;
+
+     if(input[index]!='a')
+	   return false;
+
+	   if(input[index+1]!='\0' && input[index+2]!='\0')
+	    {
+			if(input[index+1]=='b' && input[index+2]=='b')
+			  return helperCheckAB(input,index+3);
+		}
+		return helperCheckAB(input,index+1);
+}
+bool checkAB(char input[],int index=0) {
+	// Write your code here
+
+	if(input[0]!='a')
+	  return false;
+
+	  return helperCheckAB(input,0);
+
+}
