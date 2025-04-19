@@ -103,3 +103,37 @@ bool checkAB(char input[],int index=0) {
 	  return helperCheckAB(input,0);
 
 }
+
+
+bool checkAB(char input[]) {
+	// Write your code here
+    static int a=1;
+    int k=a;
+    if(input[0]=='\0')
+        return true;
+    ++a;
+    int x=checkAB(input+1);
+    
+    if(x==false)
+        return false;
+    else
+    {
+        if(input[0]=='a')
+        {
+            if(input[1]==' '||input[1]=='a'||input[1]=='\0' || input[1]=='b'&& input[2]=='b')
+                return true;
+        }
+       
+        else if(input[0]=='b' && k!=1)
+        {
+            if(input[1]=='a'||input[1]==' '||input[1]=='\0')
+                return true;
+            else if(input[1]=='b' && input[2]=='a'||input[2]==' '|| input[2]=='\0')
+                return true;
+        }
+       return false;  
+    }
+
+}
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
