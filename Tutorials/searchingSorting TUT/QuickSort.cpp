@@ -1,5 +1,8 @@
 //Select a pivot element and make it go its right position , find count of lements smaller than pivot and put pivot at si+count;
 //do the partition to put all the elements smaller than pivot at its left and greater at right, now array will be devided in two parts
+#include <bits/stdc++.h>
+using namespace std;
+
 void swap(int input[],int x,int y)
 {
 	int temp=input[x];
@@ -21,13 +24,19 @@ int partitionArray(int input[], int start, int end) {
 
 	while(i<x && j>x)
 	{
-		while(input[i]<input[x])
+		while(input[i]<=input[x])
 		 i++;
 
 		 while(input[j]>input[x])
 		   j--;
 
-		   swap(input,i,j);
+		  if (i <x && j>x) {
+            swap(input, i, j);
+            i++;
+            j--;
+        } else {
+            break;
+        }
 
 	}
 	return x;
@@ -41,7 +50,6 @@ void quickSort(int input[], int start, int end) {
 	  quickSort(input,start,k-1);
 	  quickSort(input,k+1,end);
 }
-
 
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 void Swap(int input[],int a,int b)
