@@ -70,6 +70,33 @@ void replaceCharacter(char input[], char c1, char c2) {
      }
 }
 
+#include<cstring>
+bool isPermutation(char input1[], char input2[]) {
+    // Write your code here
+    int a=strlen(input1);
+    int b=strlen(input2);
+
+    int arr[256]={0};
+
+    if(a!=b)
+      return false;
+
+    for(int i=0;i<a;i++)
+    {
+        arr[input1[i]]++;
+    }
+    for(int i=0;i<b;i++)
+    {
+        arr[input2[i]]--;
+    }
+    for(int i=0;i<256;i++)
+    {
+        if(arr[i]!=0)
+          return false;
+    }
+    return true;
+
+}
 
 int main()
 {
