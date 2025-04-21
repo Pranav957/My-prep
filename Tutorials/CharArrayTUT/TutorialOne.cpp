@@ -1,7 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
+//Built in functions for char array
+strcpy(dest,source);
+strlen(string);
+strcmp(s1,s2);
+strncpy(dest,source,numChar);
 
 void reverseString(char input[])
 {
