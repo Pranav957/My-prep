@@ -48,7 +48,21 @@ void printSubstrings(char input[]) {
     
     }
 }
-
+void removeConsecutiveDuplicates(char input[]) {
+    // Write your code here
+    int i=0,j=1;
+    char lastChar=input[0];
+    for(int i=1;input[i]!='\0';i++)
+    {
+       if(input[i]!=lastChar)
+       {
+           input[j]=input[i];
+           j++;
+            lastChar=input[i];
+       }
+    }
+    input[j]='\0';
+}
 void trimSpaces(char input[]) {
     // Write your code here
     int i=0, j=0;
