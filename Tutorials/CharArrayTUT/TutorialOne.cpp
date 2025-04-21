@@ -16,6 +16,35 @@ void reverseString(char input[])
     }
 }
 
+void printSubstrings(char input[]) {
+    // Write your code here
+    for(int k=0;input[k]!='\0';k++)
+    {
+       for(int i=k;input[i]!='\0';i++)
+    {
+        for(int j=k;j<=i;j++)
+        {
+            cout<<input[j];
+        }
+        cout<<endl;
+    }
+    
+    }
+}
+void printSubstrings(char input[]) {
+    // Write your code here
+    for(int k=0;input[k]!='\0';k++)
+    {
+        string str="";
+       for(int i=k;input[i]!='\0';i++)
+    {
+        str+=input[i];
+        cout<<str<<endl;
+    }
+    
+    }
+}
+
 void trimSpaces(char input[]) {
     // Write your code here
     int i=0, j=0;
