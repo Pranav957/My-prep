@@ -48,3 +48,53 @@ void findLargest(int **input, int nRows, int mCols)
         cout<<"column  "<<rc<<" "<<max;
     }
 }
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<WavePrint<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<,,,,,
+    void wavePrint(int **input, int nRows, int mCols)
+{
+    //Write your code here
+    for(int i=0;i<mCols;i++)
+    {
+        if(i%2!=0)
+        {
+            for(int j=nRows-1;j>=0;j--)
+            {
+                cout<<input[j][i]<<" ";
+            }
+        }
+        else {
+            for(int j=0;j<nRows;j++)
+        {
+            cout<<input[j][i]<<" ";
+        }
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<SPIRAL PRINT<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    void spiralPrint(int **input, int nRows, int nCols)
+{
+    //Write your code here
+   int r1=0,c1=0,r2=nRows-1, c2=nCols-1;
+   while(r1 <= r2 && c1<= c2){
+       for(int i=c1;i<=c2;i++){
+           cout<<input[r1][i];
+       }
+       r1++;
+
+       for(int i=r1; i<= r2; i++){
+           cout<<input[i][c2];
+       }
+       c2--;
+
+       for(int i=c2;i>=c1;i--){
+           cout<<input[r2][i];
+       }
+       r2--;
+
+       for(int i=r2;i>=r1;i--){
+           cout<<input[i][c1];
+       }
+       c1++;
+
+   }
+}
