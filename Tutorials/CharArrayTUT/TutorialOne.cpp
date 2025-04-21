@@ -171,6 +171,30 @@ char highestOccurringChar(char input[]) {
     return max;
 }
 
+string getCompressedString(string &input) {  //If a string has 'x' repeated 5 times, replace this "xxxxx" with "x5".
+    // Write your code here.
+    char prevChar=input[0];
+    int j=1,count=1;
+    for(int i=1;input[i]!='\0';i++)
+    {
+        if(input[i]!=prevChar)
+        {
+            if(count>1)
+            {
+                input[j]=count;
+                j++;
+            }
+             input[j]=input[i];
+             j++;
+             count=1;
+            prevChar=input[i];
+        }
+        else{
+            count++;
+        }
+    }
+}
+
 
 int main()
 {
