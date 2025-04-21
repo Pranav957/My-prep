@@ -141,6 +141,21 @@ void reverseEachWord(char input[]) {
     reverse_string(input,j,i-1);
 }
 
+void removeAllOccurrencesOfChar(char input[], char c) { //remove all the occurencesof 'X
+    // Write your code here
+    int j=0;
+    for(int i=0;input[i]!='\0';i++)
+    {
+        if(input[i]!=c)
+        {
+         input[j]=input[i];
+         j++;
+        }
+    }
+    input[j]='\0';
+}
+
+
 int main()
 {
   
