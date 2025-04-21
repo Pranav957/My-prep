@@ -155,6 +155,22 @@ void removeAllOccurrencesOfChar(char input[], char c) { //remove all the occuren
     input[j]='\0';
 }
 
+char highestOccurringChar(char input[]) {
+    // Write your code here
+    int arr[256]={0};
+    for(int i=0;input[i]!='\0';i++)
+    {
+        arr[input[i]]++;
+    }
+    int max =-1234;
+    for(int i=0;i<256;i++)
+    {
+        if(arr[i]>max)
+          max=arr[i];
+    }
+    return max;
+}
+
 
 int main()
 {
