@@ -179,6 +179,7 @@ int main()
      reverseString(arr);
   cin.getline(stringName,len,delimeter);
      cout<<arr<<" ";// prints string not address
+    cin >>arr;
     
     return 0;
 }
