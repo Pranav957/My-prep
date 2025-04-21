@@ -116,6 +116,31 @@ bool isPermutation(char input1[], char input2[]) {
 
 }
 
+void reverse_string(char input[],int i,int j)
+{
+   while(i<j)
+   {
+       int temp=input[i];
+       input[i]=input[j];
+       input[j]=temp;
+       i++;
+       j--;
+   }
+}
+void reverseEachWord(char input[]) {
+    // Write your code here
+    int j=0;int i;
+    for( i=0; input[i]!='\0'; i++)
+    {
+         if(input[i]==' ')
+         {
+             reverse_string(input, j, i-1);
+             j=i+1;
+         }
+    }
+    reverse_string(input,j,i-1);
+}
+
 int main()
 {
   
