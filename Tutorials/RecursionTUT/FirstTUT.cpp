@@ -123,7 +123,7 @@ int countZeros(int n,int sum=0) {
 }
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-double geometricSum(int k,int i=1,double sum=0) {
+double geometricSum(int k,int i=1,double sum=0) { //1 + 1/2 + 1/4 + 1/8 + ... + 1/(2^k) 
     // Write your code here
     if(k<0)
      return sum;
