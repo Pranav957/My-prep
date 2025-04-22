@@ -64,6 +64,18 @@ int firstIndex(int input[], int size, int x,int i=0) {
 
        return a;
 }
+
+	int firstIndex(int input[], int size, int x) {
+ 
+  static int i=0;
+  if(size==0)
+    return -1;
+   if(input[i]==x)
+     return i;
+     i++;
+    return firstIndex(input, size-1,  x);
+   
+}
   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 int lastIndex(int input[], int size, int x) {
  
