@@ -234,6 +234,38 @@ Node* takeInput()
     }
     return head;
 }
+Node* insertNode(Node* head, int i,int data)
+{
+    if(head==NULL)
+      return head;
+      
+      if(i==0)
+      {
+          Node* newNode=new Node(data);
+          newNode->next=head;
+          head=newNode;
+          return head;
+      }
+      head->next=insertNode(head->next,i-1,data);
+      return head;
+}
+
+Node* deleteNode(Node* head, int pos)
+{
+    if(head==NULL)
+      return head;
+      
+      if(pos==0)
+      {
+          Node* temp=head;
+          head=head->next;
+          delete temp;
+          return head;
+      }
+      head->next=deleteNode(head->next,i-1,data);
+      return head;
+}
+
 
 int main()
 {
