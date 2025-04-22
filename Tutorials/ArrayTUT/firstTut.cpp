@@ -163,6 +163,46 @@ void intersection(int *arr1, int *arr2, int n, int m)
     }
     return count;
 }
+
+int pairSum(int *arr, int n, int num)  //two pointers
+{
+	//Write your code here
+	sort(arr,arr+n);
+	int count=0;
+	int startIndex=0;
+	int endIndex=n-1;
+	while(startIndex<endIndex)
+	{
+		if(arr[startIndex]+arr[endIndex]>num)
+		  endIndex--;
+		 else if(arr[startIndex]+arr[endIndex]<num)
+		    startIndex++;
+	    else{
+            if(arr[startIndex]==arr[endIndex])
+			{
+                   int numCount=(endIndex-startIndex)+1;
+				   count+=(numCount*(numCount-1)/2);
+				    return count;
+			}
+			else{
+				int tempstart=startIndex+1;
+				int tempend=endIndex-1;
+				while(tempstart<=tempend && arr[tempstart]==arr[startIndex])
+				    tempstart++;
+				 while(tempend>=tempstart && arr[tempend]==arr[endIndex])
+				    tempend--;
+
+			    int leftcount=tempstart-startIndex;
+				int rightcount=endIndex- tempend;
+				count+=leftcount*rightcount;
+				startIndex=tempstart;
+				endIndex=tempend;			
+				    
+			}
+		}		 
+	}
+	return count;
+}
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<TRIPLET SUM<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
   int tripletSum(int *input, int size, int x)
 {
