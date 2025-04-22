@@ -89,4 +89,60 @@ if(size==0)
       return ans;
 
 }
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+int multiplyNumbers(int m, int n) {
+    if(n==0)
+       return 0;
+
+       return m+multiplyNumbers(m,n-1);    
+}
+	
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+int countZeros(int n,int sum=0) {
+    // Write your code here
+    if(n==0)
+     return 1;
+    if(n>=1 && n<10)
+      return 0;
+
+      if(n%10==0)
+        return 1+countZeros(n/10,sum);
+     return countZeros(n/10,sum);
+}
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+double geometricSum(int k,int i=1,double sum=0) {
+    // Write your code here
+    if(k<0)
+     return sum;
+     
+     sum+=1.0/i;
+     return geometricSum(k-1,i*2,sum);
+
+}
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+bool isPalindrome(string& str,int i,int j) {
+    // Write your code here.
+    if(i>=j)
+     return true;
+
+     if(str[i]!=str[j])
+      return false;
+    
+      return isPalindrome(str,++i,--j);
+}
+bool isPalindrome(string& str)
+{
+    return isPalindrome(str,0,str.length()-1);
+}
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	int sumOfDigits(int n) {
+    // Write your code here
+    if(n==0)
+      return 0;
+
+      return n%10+sumOfDigits(n/10);
+
+}
+
 
