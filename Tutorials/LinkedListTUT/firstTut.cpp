@@ -30,6 +30,15 @@ void printList(Node* head)
       printList(head->next);
 }
 
+void print(Node* head)
+{
+    while(head!=NULL)
+    {
+        cout<<head->data<<" ";
+        head=head->next;
+    }
+}
+
 int lengthOfLL(Node* head)
 {
     if(head==NULL)
