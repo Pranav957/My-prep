@@ -35,6 +35,18 @@ void printSubstrings(char input[]) {
     
     }
 }
+
+void printAllPrefixes(char input[])
+{
+    for(int i=0;input[i]!='\0';i++)
+    {
+        for(int j=0;j<=i;j++)
+         cout<<input[j];
+         
+        cout<<endl;
+    }
+    
+}
 void printSubstrings(char input[]) {
     // Write your code here
     for(int k=0;input[k]!='\0';k++)
