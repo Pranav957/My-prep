@@ -32,6 +32,25 @@
              return arr[i];
      } 
 } 
+#include<bits/stdc++.h>
+int findUnique(int *arr, int n) {  //nlogn
+    // Write your code here
+    sort(arr,arr+n);
+    for(int i=0;i<n;i+=2)
+    {
+        if(arr[i]!=arr[i+1])
+          return arr[i];
+    }
+}
+int findUnique(int *arr, int n) {// O(N)
+    // Write your code here
+    int ans=0;
+    for(int i=0;i<n;i++)
+    {
+        ans=ans^arr[i];
+    }
+  return ans;
+}
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<DUPLICATES INARRAY<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 int duplicateNumber(int *arr, int size)
 {
@@ -47,6 +66,42 @@ int duplicateNumber(int *arr, int size)
         }   
     }   
 }
+
+int findDuplicate(int *arr, int n)
+{
+    int sum=0;
+    //Write your code here
+    for(int i=0;i<n;i++)
+    {
+       sum+=arr[i];
+    }
+    int x=(n-2)*(n-1)/2;
+    return sum-x;
+}
+
+// int findDuplicate(int *arr, int n)
+// {
+//     //Write your code here
+//     sort(arr,arr+n);
+//     for(int i=0;i<n-1;i++)
+//     {
+//         if(arr[i]==arr[i+1])
+//            return arr[i];
+//     }
+// }
+
+// int findDuplicate(int *arr, int n)
+// {
+//     //Write your code here
+//     for(int i=0;i<n;i++)
+//     {
+//         for(int j=i+1;j<n;j++)
+//         {
+//             if(arr[i]==arr[j])
+//                return arr[i];
+//         }
+//     }
+// }
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ARRAY INTERSECTION<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
   void intersection(int *input1, int *input2, int size1, int size2)
 {
@@ -63,6 +118,31 @@ int duplicateNumber(int *arr, int size)
             }    
         }   
     }   
+}
+//sort small array and for each element in first array perform binary search on second
+void intersection(int *arr1, int *arr2, int n, int m) 
+{
+    //Write your code here
+    sort(arr1,arr1+n);
+    sort(arr2,arr2+m);
+  int i=0,j=0;
+  while(i<n && j<m)
+  {
+      if(arr1[i]==arr2[j])
+      {
+          cout<<arr1[i]<<" ";
+          i++;
+          j++;
+          
+      }
+     else  if(arr1[i]<arr2[j])
+         {
+             i++;
+         }
+         else{
+             j++;
+         }
+  }
 }
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<PAIR SUM<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
   int pairSum(int *input, int size, int x)
