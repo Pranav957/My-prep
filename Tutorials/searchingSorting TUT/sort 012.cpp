@@ -1,4 +1,4 @@
-void sort012(int *arr, int n)
+void sort012(int *arr, int n)  //sort 0 an2 only in O(n)
 {
     //Write your code here
     int nz=0,nt=n-1, i=0;
