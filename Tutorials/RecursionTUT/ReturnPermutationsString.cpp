@@ -30,3 +30,28 @@ int returnPermutations(string input, string output[]){
     
     return k;
 }
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<PRINT PERMUTATIONS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	#include <iostream>
+#include <string>
+using namespace std;
+void printPermutations(string input,string output)
+{
+	if(input.length()==0)
+	{
+		cout<<output<<endl;
+		return;
+	}
+     for(int i=0;i<input.length();i++)
+    {
+		
+		string str=input.substr(0,i)+input.substr(i+1);
+		
+		printPermutations(str,output+input[i]);
+	}
+	return;
+}
+void printPermutations(string input){
+
+	string output="";
+   printPermutations( input,output);	
+}
