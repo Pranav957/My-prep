@@ -1,0 +1,20 @@
+#include<queue>
+int kthLargest(vector<int>&arr, int k) {
+    // Write your code here
+    priority_queue<int, vector<int>, greater<int>> pq;
+    for(int i=0;i<k;i++)
+    {
+       pq.push(arr[i]);
+    }
+    for(int i=k;i<arr.size();i++)
+    {
+        int x=pq.top();
+        if(arr[i]>x)
+        {
+            pq.pop();
+            pq.push(arr[i]);
+        }
+    }
+    return pq.top();
+    
+}
