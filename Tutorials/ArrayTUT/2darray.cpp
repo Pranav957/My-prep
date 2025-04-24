@@ -71,30 +71,44 @@ void findLargest(int **input, int nRows, int mCols)
     }
 }
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<SPIRAL PRINT<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-    void spiralPrint(int **input, int nRows, int nCols)
+  void spiralPrint(int **input, int nRows, int nCols)
 {
     //Write your code here
-   int r1=0,c1=0,r2=nRows-1, c2=nCols-1;
-   while(r1 <= r2 && c1<= c2){
-       for(int i=c1;i<=c2;i++){
-           cout<<input[r1][i];
+   int rs=0, re=nRows-1;
+   int cs=0, ce=nCols-1;
+   int element=nRows*nCols;
+   while(cs<=ce && rs<=re)
+   {
+       for(int i=cs;i<=ce;i++)
+       {
+           cout<<input[rs][i]<<" ";
+           element--;
        }
-       r1++;
-
-       for(int i=r1; i<= r2; i++){
-           cout<<input[i][c2];
+       rs++;
+       for(int i=rs; i<=re;i++)
+       {
+           cout<<input[i][ce]<<" ";
+           element--;
        }
-       c2--;
-
-       for(int i=c2;i>=c1;i--){
-           cout<<input[r2][i];
+       ce--;
+       if(rs<=re)
+       {
+          for(int i=ce;i>=cs;i--)
+       {
+           cout<<input[re][i]<<" ";
+           element--;
        }
-       r2--;
-
-       for(int i=r2;i>=r1;i--){
-           cout<<input[i][c1];
        }
-       c1++;
-
+       re--;
+       if(cs<=ce)
+       {
+      for(int i=re;i>=rs;i--)
+       {
+           cout<<input[i][cs]<<" ";
+           element--;
+       }
+       }
+       
+       cs++;
    }
 }
