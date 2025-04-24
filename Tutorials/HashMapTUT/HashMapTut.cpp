@@ -25,6 +25,7 @@ vector<int> removeDuplicates(int*a, int size)
     }
     return output;
 }
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 int findHighFrequency(int* arr, int n)
 {
@@ -45,7 +46,7 @@ int findHighFrequency(int* arr, int n)
     }
     return value;
 }
-
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 void printIntersection(int* arr1, int* arr2, int m, int n)
 {
     unordered_map<int,int> mp;
@@ -62,7 +63,7 @@ void printIntersection(int* arr1, int* arr2, int m, int n)
           }
       }
 }
-
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 int pairSum(int* arr, int n)
 {
     unordered_map<int,int> mp;
@@ -109,6 +110,23 @@ int pairSum1(int* arr, int n)
      return sum;
 }
 
+#include<unordered_map>
+int pairSum(int *arr, int n) {
+	// Write your code here
+	unordered_map<int,int> mp;
+	int count=0;
+	for(int i=0;i<n;i++)
+	{
+		int x=0-arr[i];
+        count+=mp[x];
+        mp[arr[i]]++;
+
+	}
+	
+	return count;
+}
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 string uniqueChar(string str)
 {
     string output="";
@@ -124,7 +142,57 @@ string uniqueChar(string str)
     }
     return output;
 }
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+  
+#include<unordered_map>
+vector<int> longestConsecutiveIncreasingSequence(int *arr, int n) {
+    // Your Code goes here
+    unordered_map<int,bool> mp;
+    vector<int> v;
+    int start, end, maxlength=0;
+    for(int i=0;i<n;i++)
+    {
+        mp[arr[i]]=true;
+    }
+    for(int i=0;i<n;i++)
+    {
+        if(mp[arr[i]]==false)
+           continue;
+        int x=arr[i];
+        int length=0;
+      while(mp.find(x)!=mp.end())
+      {
+          length+=1;
+          mp[x]=false;
+          end=x;
+          ++x;
+
+      }
+      x=arr[i]-1;
+      start=arr[i];
+      while(mp.find(x)!=mp.end())
+      {
+          length+=1;
+          mp[x]=false;
+           start=x;
+          --x;
+      }
+      if(length>maxlength)
+       {
+           maxlength=length;
+           while(!v.empty())
+           {
+               v.pop_back();
+           } 
+           v.push_back(start);
+           v.push_back(end);
+       } 
+
+    }
+    return v;
+}
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 int main()
 {
      int arr[]={1,3,5,2,7,8,4,3,7,9,10};
