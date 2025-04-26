@@ -37,3 +37,34 @@ int countBracketReversals(string input) {
 
     return count;
 }
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ANOTHER APPROCH<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    #include<stack>
+int countBracketReversals(string input) {
+	// Write your code here
+	stack<int> st;
+	if(input.length()%2==0)
+	{
+		int x=0;
+       for(int i=0;i<input.length();i++)
+	   {
+		   if(input[i]=='{')
+		   {
+                st.push(input[i]);
+           }  
+		   else
+		      {
+				  if(st.empty())
+				   {
+                     st.push(input[i]);
+					 ++x;
+                   } 
+				 else	 
+                     st.pop();	
+              }
+	   }
+	   int ans=st.size();
+	   return (ans/2)+x;
+	}
+	else
+	 return -1;
+}
