@@ -1,5 +1,5 @@
 #include<climits>
-#include<bits/stdc++.h>  //assume first char of s is part of subsequence and not part of subsequence
+#include<bits/stdc++.h>
  int dp[1001][1001];
  //memset(dp, -1, sizeof(dp));
  
@@ -35,19 +35,19 @@ int solve(string& s,string& v)
  }  
     return solve(s,v,0,0);
 }
-  /*int solve(string s,string v)
-  {
-     int m=s.length();
-   int n=v.length();
-     int **dp=new int*[m];
-     for(int i=0;i<m;i++)
-     {
-       dp[i]=new int[n];
-     }  
+//   int solve(string s,string v)
+//   {
+//      int m=s.length();
+//    int n=v.length();
+//      int **dp=new int*[m];
+//      for(int i=0;i<m;i++)
+//      {
+//        dp[i]=new int[n];
+//      }  
 
     
-  }*/
-/*int solve(string s, string v) 
+//   }
+int solve(string s, string v) 
 {
   if(s.length()==0)
       return INT_MAX;
@@ -85,10 +85,6 @@ int solve(string s, string v) {
     return 1;
   int a = solve(s.substr(1), v);
   int b = 1 + solve(s.substr(1), v.substr(i + 1));
-  // if(a!=0 && b!=0)
   return min(a, b);
-  // if(a==0)
-   //  return b;
-   //else
-   // return a;
-}*/
+ 
+}
