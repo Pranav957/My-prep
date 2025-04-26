@@ -1,3 +1,42 @@
+int countPairs(vector<pair<int,int>> a){
+    int count=0;
+    for(auto i=a.begin();i!=a.end();i++)
+    {
+        if((*i).first>(*i).second)
+            count++;
+    }
+    return count;
+}
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+	#include <bits/stdc++.h> 
+vector<vector<int>> transpose(int m, int n, vector<vector<int>> &mat){
+    // Write your code here.
+    vector<vector<int>> tm(n,vector<int>(m));
+    for(int i=0;i<m;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+           tm[j][i]= mat[i][j];
+        }
+    }
+    return tm;
+}
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+vector<int> kthSmallLarge(vector<int> &arr, int n, int k)
+{
+	// Write your code here.
+	sort(arr.begin(),arr.end());
+	vector<int> v;
+	v.push_back(arr[k-1]);
+	v.push_back(arr[n-k]);
+	return v;
+}
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 void reverseArray(vector<int> &arr , int m) {
     // Write your code here
       	reverse(arr.begin()+m+1,arr.end());
