@@ -26,3 +26,15 @@
        }
        return false;
     }
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<MIDDLE OF LINKED LIST<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+  ListNode* middleNode(ListNode* head) {
+        ListNode* fast=head; //gives second if even length
+        ListNode* slow=head;
+
+        while(fast!=NULL && fast->next!=NULL)
+        {
+            fast=fast->next->next;
+            slow=slow->next;
+        }
+        return slow;
+    }
