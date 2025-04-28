@@ -23,3 +23,21 @@ bool isUnique(string s,int i,int j)
         }
         return maxLength;
     }
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Dynamic sliding window<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+     int lengthOfLongestSubstring(string s) {
+        int maxLength=0;
+        int left=0;
+        unordered_set<char> setA;
+        for(int right=0;right<s.length();right++)
+        {
+            while(setA.count(s[right]))
+            {
+                setA.erase(setA.find(s[left]));
+                left++;
+            }
+
+            setA.insert(s[right]);
+            maxLength=max(maxLength, right-left+1);
+        }
+        return maxLength;
+    }
