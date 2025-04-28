@@ -35,3 +35,23 @@ public:
     }
     return count;
 }
+><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+      int subarraySum(vector<int>& nums, int k) {
+       unordered_map<int,int> mp;
+       int count=0;
+       if(nums[0]==k)
+        count++;
+        mp[nums[0]]++;
+       for(int i=1;i<nums.size();i++)
+       {
+          nums[i]=nums[i-1]+nums[i];
+
+          if(nums[i]==k)
+           count++;
+
+          int x=nums[i]-k;
+          if(mp.count(x)>0)
+            count+=mp[x]; 
+
+            mp[nums[i]]++;
+       }
