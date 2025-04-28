@@ -1,19 +1,21 @@
-// void pushZeroesEnd(int *input, int size)// initialize variable to keep index wehere first non zero element should be placed
-// {
-//     //Write your code here
-//     int placeNonZero=0;
-//     for(int i=0;i<size;i++)
-//     {
-//         if(input[i]!=0)
-//         {
-//             int temp=input[i];
-//             input[i]=input[placeNonZero];
-//             input[placeNonZero]=temp;
+void pushZeroesEnd(int *input, int size)// initialize variable to keep index wehere first non zero element should be placed
+{
+    //Write your code here
+    int placeNonZero=0;
+    for(int i=0;i<size;i++)
+    {
+        if(input[i]!=0)
+        {
+            int temp=input[i];
+            input[i]=input[placeNonZero];
+            input[placeNonZero]=temp;
 
-//             placeNonZero++;
-//         }
-//     }
-// }
+            placeNonZero++;
+        }
+    }
+}
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// Create new array initialize with all zeros and them=n replace each zero with non zero
 
 void swap(int input [],int i,int j)
 {
