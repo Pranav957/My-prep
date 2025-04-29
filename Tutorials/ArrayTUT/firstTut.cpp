@@ -75,7 +75,7 @@ int findDuplicate(int *arr, int n)
     {
        sum+=arr[i];
     }
-    int x=(n-2)*(n-1)/2;
+    int x=(n-2)*(n-1)/2; //sum of first n-2 natural numnbers
     return sum-x;
 }
 
