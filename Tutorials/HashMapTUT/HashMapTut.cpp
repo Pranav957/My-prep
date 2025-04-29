@@ -64,7 +64,7 @@ void printIntersection(int* arr1, int* arr2, int m, int n)
       }
 }
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-int pairSum(int* arr, int n)
+int pairSum(int* arr, int n)                           5 ->  2 1 -2 2 3
 {
     unordered_map<int,int> mp;
      int sum=0;
