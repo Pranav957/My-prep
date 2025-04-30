@@ -12,7 +12,7 @@ stack<int> s;
        }
         for(int i=0;i<nums.size();i++)
        {
-          while(nums[i]>nums[s.top()])
+          while(nums[i]<nums[s.top()])
           {
             int index=s.top();
             s.pop();
