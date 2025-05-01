@@ -11,7 +11,7 @@ int countBracketReversals(string input) {
 
     stack<char> s;
     
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {    //remove all balanced pairs and keep only unbalanced in stack
         if (input[i] == '{') {
             s.push('{');
         } else { // input[i] == '}'
@@ -24,7 +24,7 @@ int countBracketReversals(string input) {
     }
 
     int count = 0;
-    while (!s.empty()) {
+    while (!s.empty()) {                       //pop two unbalanced each time and do the calculations
         char c1 = s.top(); s.pop();
         char c2 = s.top(); s.pop();
         
