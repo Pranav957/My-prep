@@ -3,7 +3,7 @@
  int dp[1001][1001];
  //memset(dp, -1, sizeof(dp));
  
-int solve(string& s, string& v,int i,int j) {
+int solve(string& s, string& v,int i,int j) {   //(a) is part of suqence and not partOf subsequence
     // Write your code here
     if(i>=s.size()) return 1001;
     if(j>=v.length()) return 1;
