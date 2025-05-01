@@ -1,5 +1,5 @@
 #include<climits>  // maximum square matrix ending at ij
-int findMaxSquareWithAllZeros(int **arr, int n, int m)
+int findMaxSquareWithAllZeros(int **arr, int n, int m)  //maxsquareMatrixEnding at i
 {
 	//Write your code here
 	int** op=new int*[n];
