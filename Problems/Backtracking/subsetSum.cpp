@@ -19,6 +19,20 @@ int print_substring(int arr[], int N, int K, vector<int> v,int count)
   int ans2=print_substring(arr+1,N-1,K,v,count);
     return ans1+ans2;
 }
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+int  print_substring(int *arr,int N,int K,int i,int sum)
+{
+   if(i==N)
+   {
+       if(sum==K)
+         return 1;
+        return 0; 
+   }
+   int x=print_substring(arr,N,K,i+1,sum+arr[i]);
+   int y=print_substring(arr,N,K,i+1,sum);
+   return x+y;
+
+}
 int main(){
     
     // write your code here
