@@ -1,6 +1,133 @@
+
+
+
+
+
+
+
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <bits/stdc++.h>
+using namespace std;
+class Edges{
+    public:
+     int source;
+     int dest;
+     int weight;
+     
+     Edges() {}
+     
+     Edges(int s,int d,int w)
+     {
+         source=s;
+         dest=d;
+         weight=w;
+     }
+};
+
+int findParent(int v1,int* parent)
+{
+    while(parent[v1]!=v1)
+      v1=parent[v1];
+      
+      return v1;
+}
+
+bool compareByWeight(const Edges& x,const Edges& y)
+{
+    return x.weight<y.weight;
+}
+
+void KruskalsAlgo(Edges* input,Edges* output,int* parent,int n,int e)
+{
+     sort(input,input+e,compareByWeight);
+     int count=0;
+    
+    for(int i=0;i<e;i++)
+    {
+        Edges x=input[i];
+        
+        int vertex1=x.source;
+        int vertex2=x.dest;
+        
+        int parentv1=findParent(vertex1,parent);
+         int parentv2=findParent(vertex2,parent);
+        
+        if(parentv1!=parentv2)
+        {
+            output[count]=x;
+            count++;
+            
+            parent[parentv1]=parentv2;
+            
+            if(count==n-1)
+             break;
+        }
+    }
+}
+
+int main()
+{
+    int n, e;
+    cin >> n>> e;
+    
+    Edges* input=new Edges[e];
+    Edges* output=new Edges[n-1];
+    
+    for(int i=0;i<e;i++)
+    {
+        int s,d,w;
+        cin >> s >> d >> w;
+        Edges x(s,d,w);
+        input[i]=x;
+    }
+    
+    int* parent=new int[n];
+    
+    for(int i=0;i<n;i++)
+    {
+        parent[i]=i;
+    }
+    
+    KruskalsAlgo(input,output,parent,n,e);
+    
+    cout<<"result: "<<endl; //5 4 0 1 5 1 2 6 2 3 2 3 0 4
+    
+    for(int i=0;i<n-1;i++)
+    {
+        Edges x=output[i];
+        cout<<x.source<<" "<<x.dest<<" "<<x.weight<<endl;  // 
+    }
+    
+    delete [] input;
+    delete [] output;
+    delete [] parent;
+    
+    return 0;
+    
+}
+
+
+
+
+
+
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
 #include <iostream>
 #include <algorithm> // for std::sort
 using namespace std;
+
 
 class Edge
 {
