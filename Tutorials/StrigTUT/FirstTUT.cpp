@@ -8,6 +8,30 @@ Write your code in this editor and press "Run" button to compile and execute it.
 
 #include <bits/stdc++.h>
 using namespace std;
+
+int subSequences(char input[], char output[][50]) {
+	// Write your code here
+	if(input[0]=='\0')
+	{
+		output[0][0]='\0';
+		return 1;
+	}
+
+	int k=subSequences(input+1,output);
+
+	for(int i=0;i<k;i++)
+	{
+		output[i+k][0]=input[0];
+		for(int j=0;j<output[i][j]!='\0';j++)
+		{
+			output[i+k][j+1]=output[i][j];
+		}
+		
+	}
+   return 2*k;
+
+}
+
 int subs(string input, string output[])
 {
     if(input.empty())
