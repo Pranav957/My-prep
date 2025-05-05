@@ -31,6 +31,27 @@ int subSequences(char input[], char output[][50]) {
    return 2*k;
 
 }
+void subsequences(string str, vector<string>& output,string curr)
+{
+   if(str.length()==0)
+   {
+      if(curr.length()!=0)
+	     output.push_back(curr);
+      return;
+   }
+
+   subsequences(str.substr(1),output,curr+str[0]);
+   subsequences(str.substr(1),output,curr);
+}
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+vector<string> subsequences(string str){
+	
+	// Write your code here
+	vector<string> output;
+	subsequences(str,output,"");
+	
+	return output;
+}
 
 int subs(string input, string output[])
 {
