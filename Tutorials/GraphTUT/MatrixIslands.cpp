@@ -20,6 +20,34 @@ public:
 
        }
    }
+
+void bfs(vector<vector<char>>& grid, vector<vector<bool>>& visited, int startX, int startY, int m, int n) {
+    queue<pair<int, int>> q;
+    q.push({startX, startY});
+    visited[startX][startY] = true;
+
+    // 4-directional movement: up, right, down, left
+    int dx[4] = {-1, 0, 1, 0};
+    int dy[4] = {0, 1, 0, -1};
+
+    while (!q.empty()) {
+        auto [x, y] = q.front();
+        q.pop();
+
+        for (int k = 0; k < 4; ++k) {
+            int newX = x + dx[k];
+            int newY = y + dy[k];
+
+            // Check bounds and conditions
+            if (newX >= 0 && newX < m && newY >= 0 && newY < n &&
+                grid[newX][newY] == '1' && !visited[newX][newY]) {
+                visited[newX][newY] = true;
+                q.push({newX, newY});
+            }
+        }
+    }
+}
+
     int numIslands(vector<vector<char>>& grid) {
         int m=grid.size();
         int n=grid[0].size();
