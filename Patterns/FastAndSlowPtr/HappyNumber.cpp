@@ -37,7 +37,7 @@ public:
     }
     bool isHappy(int n) {
        int slow=n;
-       int fast=getNext(getNext(n));
+       int fast=getNext(n);
 
        while(fast!=1 && fast!=slow)
        {
