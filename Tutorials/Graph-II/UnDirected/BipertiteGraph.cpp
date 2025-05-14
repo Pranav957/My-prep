@@ -1,0 +1,25 @@
+bool helper(vector<vector<int>>& graph, vector<int>& color, int cl, int sv) {
+    color[sv] = cl;
+
+    for (int neighbor : graph[sv]) {
+        if (color[neighbor] == cl)
+            return false;
+        if (color[neighbor] == -1) {
+            if (!helper(graph, color, !cl, neighbor))
+                return false;
+        }
+    }
+    return true;
+}
+
+bool isBipartite(vector<vector<int>>& graph) {
+    int n = graph.size();
+    vector<int> color(n, -1);
+    for(int i = 0; i < n; i++) {
+        if(color[i] == -1) {  // <-- Fixed condition here
+            if(helper(graph, color, 0, i) == false)
+                return false;
+        }  
+    }
+    return true;
+}
