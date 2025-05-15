@@ -1,7 +1,7 @@
 class Solution {
 public:
-    vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
-       const int N=graph.size();
+    vector<int> eventualSafeNodes(vector<vector<int>>& graph) { // if cycle is preset then nodes in cycle will have path which does not end at terminal so 
+       const int N=graph.size();                                //topo sort will give only nodes which ends at terminal as indegree of cycle nodes will never becomes 0 so wont be updated in queue
         vector<vector<int>> adj(N);
         vector<int> indegree(N);
         for(int i=0;i<N;i++)
