@@ -1,6 +1,6 @@
 class Solution {
   public:
-    vector<int> dijkstra(int V, vector<vector<int>> &edges, int src) {
+    vector<int> dijkstra(int V, vector<vector<int>> &edges, int src) {     //ElogV
         // Code here
         vector<pair<int,int>> adj[V];
         for(auto edge:edges)
