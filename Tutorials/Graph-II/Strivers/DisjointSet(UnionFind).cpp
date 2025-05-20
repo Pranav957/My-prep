@@ -1,5 +1,5 @@
 // Online C++ compiler to run C++ program online
-#include <bits/stdc++.h>
+#include <bits/stdc++.h>         //O(4alpha) ~=O(1))
 using namespace std;
 class Disjoinset{
     vector<int> rank, parent,size;
