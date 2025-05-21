@@ -56,12 +56,12 @@ class Disjoinset{
          if(size[ulp_u]>size[ulp_v])
          {
              parent[ulp_v]=ulp_u;
-             size[ulp_u]++;
+             size[ulp_u]+=size[ulp_v];
          }
          else
          {
              parent[ulp_u]=ulp_v;
-             size[ulp_v]++;
+             size[ulp_v]+=size[ulp_u];
          }
      }
 };
