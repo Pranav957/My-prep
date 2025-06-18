@@ -146,6 +146,54 @@ int getBiggestPieceSize(vector<vector<int>> &cake, int n) {
     return mx;
 
 }
+
+int findLarge(vector<vector<int>> & cake,vector<vector<bool>> visited,int i,int j,int n)
+{
+    visited[i][j]=true;
+   
+   int count=0;
+
+    int diffX[4]={-1, 0, 1,0};
+    int diffY[4]={0,1,0,-1};
+
+
+    for(int k=0;k<4;k++)
+    {
+        int newX=i+diffX[k];
+        int newY=i+diffY[k];
+    
+       if(newX<n && newX>=0 && newY<n && newY>=0)
+       {
+            if(cake[newX][newY]==1 && !visited[newX][newY])
+            {
+               count+=  findLarge(cake,visited,newX,newY,n);
+            }
+       }
+    }
+    // cout<<count<<" ";
+  return count+1;
+    
+}
+int getBiggestPieceSize(vector<vector<int>> &cake, int n) {
+    // Write your code here
+
+    vector<vector<bool>> visited(n,vector<bool>(n,false));
+    int maxPeace=0;
+
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            if(cake[i][j]==1 && !visited[i][j])
+            {
+                int count=findLarge(cake,visited,i,j,n);
+                if(count>maxPeace)
+                 maxPeace=count;
+            }
+        }
+    }
+    return maxPeace;
+}
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
   #include <iostream>
 using namespace std;
