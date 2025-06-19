@@ -30,7 +30,7 @@ private:
 
 public:
     bool isCyclic(int V, vector<vector<int>>& edges) {
-        vector<int> vis(V, 0);
+        vector<int> vis(V, 0);  // do it with single array by marking visited as 1 and path visited as 2
         vector<int> pathVis(V, 0);
 
         for (int i = 0; i < V; i++) {
