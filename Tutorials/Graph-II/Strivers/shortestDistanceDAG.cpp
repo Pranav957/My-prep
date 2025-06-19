@@ -28,8 +28,8 @@ class Solution {
         
         vector<bool> visited(V);
         
-        stack<int> st;
-        for(int i=0;i<V;i++)
+        stack<int> st;  //toposort is used as while cal dist for x we would jave calculated distances of all nodes which appears before x i.e. nodes from which we can reach x
+        for(int i=0;i<V;i++) //O(M+N) time Complexity which is less than any other algo
         {
              if(!visited[i])
                trvelDFS(adj,i,visited,st);
