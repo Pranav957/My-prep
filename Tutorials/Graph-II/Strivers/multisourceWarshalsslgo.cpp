@@ -35,7 +35,7 @@ class Solution {
             for(int j=0;j<n;j++)
             {
                 if(dist[i][j]==-1)
-                  dist[i][j]=1e8;
+                  dist[i][j]=1e8;  //1e8 is much smaller than MAX_INT to ovoid overflow
                   
                   if(i==j) dist[i][j]=0;
             }
