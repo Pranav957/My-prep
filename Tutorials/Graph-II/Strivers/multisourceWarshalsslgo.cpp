@@ -55,7 +55,7 @@ class Solution {
         
         for(int i=0;i<n;i++)
          {
-             if(dist[i][i]<0);
+             if(dist[i][i]<0);    //negatice cycle exists
               
          }
         
