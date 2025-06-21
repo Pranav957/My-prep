@@ -19,6 +19,7 @@ class Solution {
             
             visited[node]=true;
             sum+=wt;
+          // if parent is not -1 then ans.push({parent,node})
             for(auto it:adj[node])
             {
                 int adjNode=it[0];
@@ -35,3 +36,8 @@ class Solution {
         
     }
 };
+//MST-> a Tree with n nodes and n-1 edges and all the nodes rae reachable from each other
+//first push [0,0,-1]-[wt,node,parent]  in pq 
+//get the top and mark it as visited and add wt into sum and add the edge into ans array if parent is not -1
+//check adjacent nodes which are unvisited and push them into the array
+//Intution->GREEDY->everytime we are pulling min wt edge from pqand adding it into the ans and marking node as visited(i.e. node is part of mst)
