@@ -15,7 +15,7 @@ class Solution {
               call_DFS(adj,it,node,visited,tin,low,bridges);
               low[node]=min(low[node],low[it]);
               //node---it
-              if(low[it]>tin[node])
+              if(low[it]>tin[node]) // if adjacent node can not return back to the node or before it
               {
                 bridges.push_back({node,it});
               }
