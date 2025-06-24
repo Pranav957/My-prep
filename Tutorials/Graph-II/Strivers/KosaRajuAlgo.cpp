@@ -7,6 +7,7 @@ Write your code in this editor and press "Run" button to compile and execute it.
 *******************************************************************************/
 // to find strongly connected components
 //Only valid for directed graphs
+//every pair of vertices is reachable both ways , A-> B and B->A
 
 
 #include <bits/stdc++.h>
