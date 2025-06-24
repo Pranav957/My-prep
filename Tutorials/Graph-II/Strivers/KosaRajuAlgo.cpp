@@ -6,6 +6,8 @@ Write your code in this editor and press "Run" button to compile and execute it.
 
 *******************************************************************************/
 // to find strongly connected components
+//Only valid for directed graphs
+
 
 #include <bits/stdc++.h>
 using namespace std;
