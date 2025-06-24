@@ -1,3 +1,7 @@
+//Edge which connects two or more components , i.e. removing edge graph gets broken into two or more components
+// tin step at which we reach a node
+//low-> lowest time insertion of all adjcent nodes apart from parent.
+// storing low apart fom parent to check if there is someone else who can take before or to the parent
 class Solution {
      int timer=1;
 
