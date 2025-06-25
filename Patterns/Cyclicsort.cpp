@@ -1,4 +1,4 @@
-void sort(int arr[],n)
+void sort(int arr[],n) // only for continues elements , which begin with 1(natural numbers)
 {
     int i=0;
     while(i!=n)
