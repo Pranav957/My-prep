@@ -14,14 +14,14 @@ class Solution {
             {
                 dfsTraversal(adj,it,node,tin,low,visited,mark);
                 low[node]=min(low[node],low[it]);
-                if(low[it]>=tin[node] && parent!=-1)   // node should reach before not the parent node
+                if(low[it]>=tin[node] && parent!=-1)   // if you are not able to reach before me(node)
                 {
                     mark[node]=1;
                 }
                 child++;
             }
             else{
-                low[node]=min(low[node],tin[it]);
+                low[node]=min(low[node],tin[it]);  // we came by that path (it) if its removed we cant go before it
             }
         }
         if(child>1 && parent==-1)
