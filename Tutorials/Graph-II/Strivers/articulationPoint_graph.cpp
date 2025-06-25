@@ -1,10 +1,13 @@
 // User function Template for C++
+// node on whose removal graph breaks into multiple components 
+// tin-> step at visited node
+// low->  min of low of adjecaent nodes apart from parent and tin[] of adjecent if its already visited
 
 class Solution {
     int timer=1;
     void dfsTraversal(vector<int> adj[],int node,int parent,int tin[],int low[],vector<bool>& visited,vector<int>& mark)
     {
-        visited[node]=true;
+        visited[node]=true;    // node is being checked for articulation point
         tin[node]=low[node]=timer;
         timer++;
         int child=0;
