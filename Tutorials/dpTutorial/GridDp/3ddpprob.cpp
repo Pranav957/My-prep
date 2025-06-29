@@ -8,6 +8,11 @@
 // decide smallest base case which is valid other wise can take smaller than that  but iterative think of both perspective
 // if two rows are currently active obtimize space using two  vectors And if two variable/indexes are active then use two variable sfor obtimizatiom
 
+// space Obtimization for
+// 1D-> two variables
+//2D-> 1D dp/ vector;
+//3D-> 2D dp/vector;
+
 int maximumChocolates(vector<vector<int>> &grid,int i,int j1,int j2,int ro,int co, vector<vector<vector<int>>>& dp)
 {
     if(j1<0 || j1>=co || j2<0 || j2>=co)  // it may happen that when value of i is n-1/ro-1 j go outof scope so defoine before base case
