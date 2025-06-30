@@ -96,3 +96,47 @@ for(int i = ro-2; i >= 0; i--) {        // express every state in for loop
 }
  return dp[0][0][co-1]; //  j1 started at 0 cell and j2 started from co-1 cell  of oth row
 }
+//***************************************************************************AFTER SPACE OBTIMIZATION*********************************************************************************************
+int maximumChocolates(int r, int c, vector<vector<int>> &grid) {
+
+ int ro=r,co=c;
+//  vector<vector<vector<int>>> dp(ro, vector<vector<int>>(co, vector<int>(co, 0)));
+vector<vector<int>> front(co,vector<int>(co,0));
+vector<vector<int>> curr(co,vector<int>(co,0));
+// base case
+for(int j1 = 0; j1 < co; j1++) {
+    for(int j2 = 0; j2 < co; j2++) {
+        if(j1 == j2)
+            front[j1][j2] = grid[ro-1][j1];
+        else
+         front[j1][j2] = grid[ro-1][j1] + grid[ro-1][j2];
+    }
+}
+
+// bottom-up calculation
+for(int i = ro-2; i >= 0; i--) {
+    for(int j1 = 0; j1 < co; j1++) {
+        for(int j2 = 0; j2 < co; j2++) {
+
+            int maxi = -1e8;
+
+            for(int dj1 = -1; dj1 <= 1; dj1++) {
+                for(int dj2 = -1; dj2 <= 1; dj2++) {
+                    int newJ1 = j1 + dj1;
+                    int newJ2 = j2 + dj2;
+
+                    if(newJ1 >= 0 && newJ1 < co && newJ2 >= 0 && newJ2 < co) {
+                        int value = front[newJ1][newJ2];
+                        int curr1 = (j1 == j2) ? grid[i][j1] : grid[i][j1] + grid[i][j2];
+                        value += curr1;
+                        maxi = max(maxi, value);
+                    }
+                }
+            }
+            curr[j1][j2] = maxi;
+        }
+    }
+    front =curr;
+}
+return front[0][co-1];
+}
