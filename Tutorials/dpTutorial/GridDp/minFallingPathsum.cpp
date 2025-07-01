@@ -56,3 +56,41 @@ int minFallingPathSum(vector<vector<int>>& matrix,int i,int j,int n,vector<vecto
           return mn;
     }
 };
+*******************************************************************************************************************************************************************************************
+int minFallingPathSum(vector<vector<int>>& matrix) {
+        int n=matrix.size();
+       int mn=INT_MAX;
+    //    vector<vector<int>> dp(n,vector<int>(n,-1));
+        // for(int j=0;j<n;j++)
+        // {
+        //    mn=min(mn,minFallingPathSum(matrix,0,j,n,dp));
+        // }
+        // return mn;
+
+        // vector<vector<int>> dp(n,vector<int>(n,0));
+        vector<int> front(n,0),curr(n,0);
+
+        for(int j=0;j<n;j++)
+        {
+            front[j]=matrix[n-1][j];
+        }
+
+        for(int i=n-2;i>=0;i--)
+        {
+            for(int j=n-1;j>=0;j--)
+            {
+                int a=INT_MAX,b=INT_MAX,c=INT_MAX;
+                if(j-1>=0)
+                 a=front[j-1];
+                if(j+1<n)
+                 b=front[j+1];
+                c=front[j];
+                curr[j]=matrix[i][j]+min({a,b,c});  
+            }
+            front=curr;
+        }
+        for(int j=0;j<n;j++)
+          mn=min(front[j],mn);
+
+          return mn;
+    }
