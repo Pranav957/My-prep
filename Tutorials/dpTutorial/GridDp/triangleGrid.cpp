@@ -39,3 +39,30 @@ public:
 
     }
 };
+*******************************************************************************OBTIMIZE SPACE**************************************************************************************************8888888
+    int minimumTotal(vector<vector<int>>& triangle) {
+        int n=triangle.size();
+        // vector<vector<int>> dp(n,vector<int>(n,-1));
+        // return minimumTotal(triangle,0,0,dp);
+        // vector<vector<int>> dp(n,vector<int>(n));
+        vector<int> front(n,0), curr(n,0);
+
+        for(int j=0;j<triangle[n-1].size();j++)
+           front[j]=triangle[n-1][j];
+
+         for(int i=n-2;i>=0;i--)
+         {
+            for(int j=i;j>=0;j--)
+            {
+                int b=INT_MAX;
+                int a=front[j];
+                 b=front[j+1];
+
+                 curr[j]=triangle[i][j]+min(a,b);
+            }
+            front=curr;
+         }
+
+         return front[0];  
+
+    }
