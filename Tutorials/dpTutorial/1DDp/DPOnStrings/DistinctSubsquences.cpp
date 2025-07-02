@@ -42,3 +42,36 @@ public:
           return dp[m][n];
     }
 };
+******************************************************************************************************************
+int numDistinct(string s, string t) {
+        const int MOD = 1e9 + 7;
+        int m=s.size();
+        int n=t.size();
+        // vector<vector<int>> dp(m+1,vector<int>(n+1,-1));
+        // return numDistinct(s,t,m,n,dp);
+        //  vector<vector<int>> dp(m+1,vector<int>(n+1,0));
+
+        //  for(int j=0;j<n+1;j++)
+        //  dp[0][j]=0;
+
+        //  for(int i=0;i<m+1;i++)
+        //   dp[i][0]=1;
+
+        vector<int> prev(n+1,0),curr(n+1,0);
+
+         prev[0]=1;
+          for(int i=1;i<m+1;i++)
+          {
+            curr[0]=1;
+            for(int j=1;j<n+1;j++)
+            {
+                if(s[i-1]==t[j-1])
+                  curr[j]=(prev[j-1])%MOD+(prev[j])%MOD;
+                else
+                 curr[j]=prev[j];  
+            }
+            prev=curr;
+          }
+
+          return curr[n];
+    }
