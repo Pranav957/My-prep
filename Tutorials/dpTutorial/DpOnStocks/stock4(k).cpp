@@ -45,6 +45,50 @@ public:
     }
 };
 *************************************************************************************************************************************************
+
+ vector<int> front(2*k+1,0), curr(2*k+1,0);
+       int x=2*k;
+        for(int i=n-1;i>=0;i--)
+        {
+            for(int j=x-1;j>=0;j--) //can reverse this if the values are not dependent on curr row being filled
+            {
+               if(j%2==0)
+               {
+                curr[j]=max(-prices[i]+front[j+1],front[j]);
+               }
+               else
+                 curr[j]=max(prices[i]+front[j+1],front[j]);
+            }
+            front=curr;
+        }
+
+        return curr[0]; // check how are we passing for top down
+
+******************************************************************************************************************
+  int maxProfit(int k, vector<int>& prices) {
+        int n=prices.size();
+        // vector<vector<int>> dp(n+1,vector<int>(2*k+1,-1));
+        // return maxProfit(prices,0,0,2*k,prices.size(),dp);
+
+        // vector<vector<int>> dp(n+1,vector<int>(2*k+1,0));
+        vector<int> front(2*k+1,0);
+       int x=2*k;
+        for(int i=n-1;i>=0;i--)
+        {
+            for(int j=x-1;j>=0;j--) //can reverse this if the values are not dependent on curr row being filled
+            {
+               if(j%2==0)
+               {
+                front[j]=max(-prices[i]+front[j+1],front[j]);
+               }
+               else
+                 front[j]=max(prices[i]+front[j+1],front[j]);
+            }
+        }
+
+        return front[0]; // check how are we passing for top down
+    }
+************************************************************************************************************************************************************************
 class Solution {
 public:
 
