@@ -1,3 +1,5 @@
+int lengthOfLIS(vector<int>& nums) {
+     int n=nums.size();
 vector<int> dp(n,1), hash(n);
      int maxi=1,lastIndex=0;
 
