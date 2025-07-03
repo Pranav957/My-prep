@@ -124,13 +124,13 @@ public:
           if(dp[idx][trans]!=-1)
            return dp[idx][trans];
 
-        if(trans%2==0)
+        if(trans%2==0) //buy
         {
             int a= (-prices[idx]+maxProfit(prices,idx+1,trans+1,n,dp)); 
             int b=maxProfit(prices,idx+1,trans,n,dp); 
             return dp[idx][trans]=max(a,b);
         } 
-        else
+        else  //sell
         {
             int a= prices[idx]+maxProfit(prices,idx+1,trans+1,n,dp); 
             int b=maxProfit(prices,idx+1,trans,n,dp); 
