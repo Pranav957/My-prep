@@ -17,8 +17,24 @@ public:
     }
     int lengthOfLIS(vector<int>& nums) {
         int n=nums.size();
-        vector<vector<int>> dp(n,vector<int>(n+1,-1));
-       return lengthOfLIS(nums,-1,0,nums.size(),dp);
+       //  vector<vector<int>> dp(n,vector<int>(n+1,-1));
+       // return lengthOfLIS(nums,-1,0,nums.size(),dp);
+
+        vector<vector<int>> dp(n+1,vector<int>(n+1,0)); // if base case 0 no initialization required
+     for (int i = n-1; i >= 0; i--) {
+        for (int j = n-1; j >= -1; j--) {
+            int b = 0;
+            if (j == -1 || nums[i] > nums[j]) {
+                b = 1 + dp[i+1][i+1];
+            }
+            int a = dp[i+1][j+1];
+
+            dp[i][j+1] = max(a, b);
+        }
+    }
+   
+
+       return dp[0][0];
     }
 };
 
