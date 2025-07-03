@@ -17,7 +17,7 @@ public:
     }
     int lengthOfLIS(vector<int>& nums) {
         int n=nums.size();
-       //  vector<vector<int>> dp(n,vector<int>(n+1,-1));
+       //  vector<vector<int>> dp(n+1,vector<int>(n+1,-1));
        // return lengthOfLIS(nums,-1,0,nums.size(),dp);
 
         vector<vector<int>> dp(n+1,vector<int>(n+1,0)); // if base case 0 no initialization required
