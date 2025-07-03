@@ -104,3 +104,13 @@ int maxProfit(vector<int>& prices) {
             }
         }
     }
+
+***************************************************************************************
+for (int i = n - 1; i >= 0; i--) {
+            for (int k = 1; k <= 2; k++) {  // skip k == 0
+                    // buy
+                    after[1][k] = max(-prices[i] + after[0][k], after[1][k]);
+                    // sell
+                    after[0][k] = max(prices[i] + after[1][k - 1], after[0][k]);
+                }
+        }
