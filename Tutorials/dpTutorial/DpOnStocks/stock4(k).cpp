@@ -23,8 +23,25 @@ public:
     }
     int maxProfit(int k, vector<int>& prices) {
         int n=prices.size();
-        vector<vector<int>> dp(n+1,vector<int>(2*k+1,-1));
-        return maxProfit(prices,0,0,2*k,prices.size(),dp);
+        // vector<vector<int>> dp(n+1,vector<int>(2*k+1,-1));
+        // return maxProfit(prices,0,0,2*k,prices.size(),dp);
+
+        vector<vector<int>> dp(n+1,vector<int>(2*k+1,0));
+       int x=2*k;
+        for(int i=n-1;i>=0;i--)
+        {
+            for(int j=x-1;j>=0;j--) //can reverse this if the values are not dependent on curr row being filled
+            {
+               if(j%2==0)
+               {
+                dp[i][j]=max(-prices[i]+dp[i+1][j+1],dp[i+1][j]);
+               }
+               else
+                 dp[i][j]=max(prices[i]+dp[i+1][j+1],dp[i+1][j]);
+            }
+        }
+
+        return dp[0][0]; // check how are we passing for top down
     }
 };
 *************************************************************************************************************************************************
