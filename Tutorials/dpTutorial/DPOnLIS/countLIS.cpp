@@ -140,6 +140,7 @@ public:
             else
              {
                 int idx=lower_bound(temp.begin(),temp.end(),nums[i])-temp.begin();//binary Search
+                 // *idx=nums[i]
                temp[idx]=nums[i];
              } 
         }
