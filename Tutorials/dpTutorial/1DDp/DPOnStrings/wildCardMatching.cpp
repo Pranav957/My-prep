@@ -65,3 +65,42 @@ public:
           return dp[m][n];
      }
 };
+**********************************************************************************************************************************************************************************
+bool isMatch(string s, string p) {
+        int m=s.size();
+        int n=p.size();
+        // vector<vector<int>> dp(m+1,vector<int>(n+1,-1));
+        // return isMatch(s,p,s.size(),p.size(),dp);
+        // vector<vector<int>> dp(m+1,vector<int>(n+1,0));
+        vector<int> prev(n+1,0),curr(n+1,0);
+
+        // for(int i=0;i<m+1;i++)
+        //  dp[i][0]=0;
+
+         for(int j=1;j<n+1;j++)
+         {
+            prev[j]=1;
+            for(int i=0;i<j;i++)
+           {
+            if(p[i]!='*')
+             prev[j]=0;
+           } 
+         }
+
+          prev[0]=1;
+
+          for(int i=1;i<m+1;i++)
+          {
+            for(int j=1;j<n+1;j++)
+            {
+                if(s[i-1]==p[j-1] || p[j-1]=='?')
+                 curr[j]=prev[j-1];
+                else if(p[j-1]=='*')
+                 curr[j]=prev[j]||curr[j-1]; 
+                else
+                 curr[j]=0; 
+            }
+            prev=curr;
+          }
+          return prev[n];
+     }
