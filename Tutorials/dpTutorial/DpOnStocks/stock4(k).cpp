@@ -1,0 +1,58 @@
+class Solution {
+public:
+ int maxProfit(vector<int>& prices,int idx,int trans,int k,int n, vector<vector<int>>& dp) {
+        if(idx==n || trans==k)
+          return 0;
+
+          if(dp[idx][trans]!=-1)
+           return dp[idx][trans];
+
+        if(trans%2==0) //buy
+        {
+            int a= (-prices[idx]+maxProfit(prices,idx+1,trans+1,k,n,dp)); 
+            int b=maxProfit(prices,idx+1,trans,k,n,dp); 
+            return dp[idx][trans]=max(a,b);
+        } 
+        else  //sell
+        {
+            int a= prices[idx]+maxProfit(prices,idx+1,trans+1,k,n,dp); 
+            int b=maxProfit(prices,idx+1,trans,k,n,dp); 
+             return dp[idx][trans]= max(a,b);
+        }
+        
+    }
+    int maxProfit(int k, vector<int>& prices) {
+        int n=prices.size();
+        vector<vector<int>> dp(n+1,vector<int>(2*k+1,-1));
+        return maxProfit(prices,0,0,2*k,prices.size(),dp);
+    }
+};
+*************************************************************************************************************************************************
+class Solution {
+public:
+
+    int maxProfit(int p, vector<int>& prices) {
+         int n=prices.size();
+        vector<vector<int>> after(2,vector<int>(p+1,0));
+         vector<vector<int>> curr(2,vector<int>(p+1,0));
+
+
+         for (int i = n - 1; i >= 0; i--) {
+        for (int j = 0; j <= 1; j++) {
+            for (int k = 1; k <= p; k++) {  // skip k == 0
+                if (j == 1) {
+                    // buy
+                    curr[j][k] = max(-prices[i] + after[0][k], after[1][k]);
+                } else {
+                    // sell
+                    curr[j][k] = max(prices[i] + after[1][k - 1], after[0][k]);
+                }
+            }
+        }
+        after=curr;
+    }
+         
+
+         return after[1][p];
+    }
+};
