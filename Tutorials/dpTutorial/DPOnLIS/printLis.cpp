@@ -19,14 +19,16 @@ vector<int> dp(n,1), hash(n);
         }
      }
      return maxi;
-
-       vector<int> temp;
-       temp.push_back(nums[lastIndex]);
-       while(hash[lastIndex]!=lastIndex)
-       {
-          temp.push_back(hash[lastIndex]);
-          lastIndex=hash[lastIndex];
-       }
+          vector<int> temp;
+          temp.push_back(nums[lastIndex]);
+          
+          while(hash[lastIndex] != lastIndex)
+          {
+              lastIndex = hash[lastIndex];
+              temp.push_back(nums[lastIndex]);
+          }
+          
+          reverse(temp.begin(), temp.end());
 
        for(auto it:temp) cout<<it<<" ";
         
