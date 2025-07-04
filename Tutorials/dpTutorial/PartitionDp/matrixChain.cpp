@@ -2,7 +2,7 @@ class Solution {
   public:
   int matrixMultiplication(vector<int> &arr,int i,int j, vector<vector<int>>&dp) {
         // code here
-        if(i==j)
+        if(i==j)          //i>=j
          return 0;
          
          int mini=INT_MAX;
