@@ -139,7 +139,8 @@ public:
              temp.push_back(nums[i]);
             else
              {
-                int idx=lower_bound(temp.begin(),temp.end(),nums[i])-temp.begin();//binary Search
+                int idx=lower_bound(temp.begin(),temp.end(),nums[i])-temp.begin();//binary Search 
+                                              //index of arr[i] or next index
                  // *idx=nums[i]
                temp[idx]=nums[i];
              } 
