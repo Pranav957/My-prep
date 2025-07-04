@@ -4,7 +4,7 @@ public:
     int n=nums.size();
      vector<int> dp(n,1), hash(n);
      int maxi=1,lastIndex=0;
-     sort(nums.begin(),nums.end());
+     sort(nums.begin(),nums.end()); //sorted as it is subset
      for(int i=0;i<n;i++)
      {
         hash[i]=i;
