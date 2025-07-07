@@ -52,3 +52,58 @@ public:
         return dp[0][n-1];
     }
 };
+
+***************************************************************************************************************************************************************************************888
+  class Solution {
+public:
+  bool isPalindrome(string & s,int i,int j)
+  {
+    while(i<j)
+    {
+        if(s[i]!=s[j])
+         return false;
+         i++;
+         j--;
+    } 
+    return true;
+  }
+  int minCut(string s,int i,int n,vector<int>& dp) {
+        if(i==n) return 0;
+
+        if(dp[i]!=-1)
+         return dp[i];
+
+        int mini=INT_MAX;
+
+        for(int j=i;j<n;j++)
+        {
+            if(isPalindrome(s,i,j))
+            {
+                int cost=1+minCut(s,j+1,n,dp);
+                mini=min(cost,mini);
+            }
+        }
+        return dp[i]=mini; 
+    }
+    int minCut(string s) {
+        int n=s.length();
+        // vector<int> dp(n+1,-1);
+        // return minCut(s,0,n,dp)-1;
+         vector<int> dp(n+1,0);
+
+         for(int i=n-1;i>=0;i--)
+         {
+            int mini=INT_MAX;
+            for(int j=i;j<n;j++)
+            {
+                if(isPalindrome(s,i,j))
+                {
+                    int cost=1+dp[j+1];
+                    mini=min(cost,mini);
+                }
+            }
+            dp[i]=mini; 
+         }
+         return dp[0]-1;
+    }
+};
