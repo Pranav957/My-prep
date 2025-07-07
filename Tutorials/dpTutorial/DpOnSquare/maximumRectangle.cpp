@@ -1,4 +1,4 @@
-class Solution {
+class Solution {  // in all tabulation problems we tend to write tabulation instead of recursion
 public:
     int getMaxRectanle(vector<int>& histo)
     {
