@@ -67,7 +67,7 @@ public:
     } 
     return true;
   }
-  int minCut(string s,int i,int n,vector<int>& dp) {
+  int minCut(string s,int i,int n,vector<int>& dp) { //min cuts required for string starting from i
         if(i==n) return 0;
 
         if(dp[i]!=-1)
