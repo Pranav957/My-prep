@@ -15,6 +15,13 @@ class Node{
     bool isTerminal=false;
     
     public:
+     Node()
+    {
+        isTerminal=false;
+        for(int i=0;i<26;i++)
+            children[i]=NULL;
+    }
+
     bool containsKey(char ch)
     {
         return childrens[ch-'a']!=NULL;
