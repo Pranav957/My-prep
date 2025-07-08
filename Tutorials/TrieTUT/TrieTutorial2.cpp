@@ -66,7 +66,7 @@ class Trie {
          {
              if(!node->containsKey(word[i]))
              {
-                 node->put(word[i],node);
+                 node->put(word[i],new Node());
              }
              node=node->get(word[i]);
          }
