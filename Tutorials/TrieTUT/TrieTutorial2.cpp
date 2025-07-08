@@ -112,3 +112,94 @@ int main()
 
     return 0;
 }
+*********************************************************************************************************************************************************************
+class TrieNode{
+    TrieNode* childrens[26];
+    bool isTerminal;
+
+    public:
+     TrieNode()
+     {
+        isTerminal=false;
+        for(int i=0;i<26;i++)
+          childrens[i]=NULL;
+     }
+
+     bool containsKey(char ch)
+     {
+        return childrens[ch-'a']!=NULL;
+     }
+
+     TrieNode* get(char ch)
+     {
+        return childrens[ch-'a'];
+     }
+
+     void put(char ch,TrieNode* node)
+     {
+        childrens[ch-'a']=node;
+     }
+
+     bool isEnd()
+     {
+        return isTerminal;
+     }
+
+     void setEnd()
+      {
+        isTerminal=true;
+      }
+};
+class Trie {
+    TrieNode* root;
+public:
+    Trie() {
+        root=new TrieNode();
+    }
+    
+    void insert(string word) {
+        TrieNode* node=root;
+        for(int i=0;i<word.size();i++)
+        {
+            if(!node->containsKey(word[i]))
+            {
+                node->put(word[i],new TrieNode());
+            }
+            node=node->get(word[i]);
+        }
+        node->setEnd();
+
+    }
+    
+    bool search(string word) {
+        TrieNode* node=root;
+        for(int i=0;i<word.size();i++)
+        {
+            if(!node->containsKey(word[i]))
+              return false;
+
+              node=node->get(word[i]);
+        }
+        return node->isEnd();
+    }
+    
+    bool startsWith(string prefix) {
+        TrieNode* node=root;
+        for(int i=0;i<prefix.size();i++)
+        {
+            if(!node->containsKey(prefix[i]))
+              return false;
+
+              node=node->get(prefix[i]);
+        }
+        return true;
+    }
+};
+
+/**
+ * Your Trie object will be instantiated and called as such:
+ * Trie* obj = new Trie();
+ * obj->insert(word);
+ * bool param_2 = obj->search(word);
+ * bool param_3 = obj->startsWith(prefix);
+ */
