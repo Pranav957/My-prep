@@ -1,4 +1,10 @@
 //to have larger Number -> power of 2s from left
+// XOR-> 
+// even no of 1s->0;
+// odd no of 1s->1
+
+// to check if ith bit is set or not ((num>>i) & 1!=0)) bit is set
+// to turn on ith bit (num|(1<<i))
 
 class Node{
     Node* links[2];
