@@ -58,7 +58,7 @@ class Trie{
             int bit=(num>>i)&1;
             if(node->containsKey(1-bit))
             {
-                maxNum=maxNum |(1<<i);
+                maxNum=maxNum |(1<<i); //turned ith bit of maxNum
                 node=node->get(1-bit);
             }
             else
