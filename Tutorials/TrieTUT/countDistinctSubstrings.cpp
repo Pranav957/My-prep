@@ -48,3 +48,23 @@ int countDistinctSubstring(string s) {
         }
         return cnt+1;
 }
+
+int countDistinctSubstring(string str)
+{
+    // Put all distinct substring in a HashSet
+    set<string> result ;
+
+    // List All Substrings
+    for (int i = 0; i <= str.length(); i++)
+    {
+        for (int j = 1; j <= str.length()-i; j++)
+        {
+
+            // Add each substring in Set
+            result.insert(str.substr(i, j));
+        }
+    }
+
+    // Return size of the HashSet
+    return result.size()+1;
+}
