@@ -117,7 +117,7 @@ class Solution {
         
        for(auto & it:words)
        {
-           if(checkIfPrefixExists(it,tri))
+            if(tri.checkIfPrefixExists(it))  //if(checkIfPrefixExists(it,tri))
            {
                if(it.length()>longest.length())
                  longest=it;
