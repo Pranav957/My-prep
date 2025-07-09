@@ -103,8 +103,8 @@ class Trie{
         return node->getPrefix();
     }
 
-    void erase(string &word){
-        // Write your code here.
+    void erase(string &word){   //giving prefix to erase will result in cntEnt in negative as no word exists so first check if it is >=1
+        // Write your code here.  // giving wrong word will resukt in deleteing prefixes count of available chars
         TrieNode* node=root;
         for(int i=0;i<word.size();i++)
         {
