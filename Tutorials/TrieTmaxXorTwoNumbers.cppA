@@ -1,3 +1,5 @@
+//to have larger Number -> power of 2s from left
+
 class Node{
     Node* links[2];
 
