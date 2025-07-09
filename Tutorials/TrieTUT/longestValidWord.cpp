@@ -74,6 +74,22 @@ class Trie {
          return node->isEnd();
        }
 
+    bool checkIfPrefixExists(string word)
+    {
+       Node* node=root;
+        for(int i=0;i<word.length();i++)
+        {
+           if(node->containsKey(word[i]))
+           {
+               node=node->get(word[i]);
+               if(node->isEnd()==false) return false;
+           }
+           else
+            return false;
+        }
+        return true;
+    }
+
 };
 class Solution {
     bool checkIfPrefixExists(string word,Trie tri)
