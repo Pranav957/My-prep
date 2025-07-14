@@ -55,3 +55,40 @@ public:
          return dp[0][0];
     }
 };
+**************************************************************************************************************************************************************************
+ bool checkValidString(string s) {
+
+        int n=s.length();
+        vector<int> front(n+1,0),curr(n+1,0);
+
+        front[0] = 1;
+
+        for(int i=n-1;i>=0;i--)
+        {
+             curr.assign(n+1, 0);// as we are not assiging false value while filling current row we need to do this
+            // for(int j=n-1;j>=0;j--) // as values are from next row only can traverse in any direction
+            for(int j=0;j<n;j++)
+            {
+                if(s[i]=='(')
+                {
+                    // if(j+1<=n)
+                     curr[j]=front[j+1];
+                }
+                else if(s[i]==')')
+                {
+                    if(j>=1)
+                    curr[j]=front[j-1];
+                    
+                 }
+                 else {
+                    bool chooseOpen =  front[j+1];
+                    bool chooseClose = (j >= 1) && front[j-1];
+                    bool chooseEmpty = front[j];
+                    curr[j] = chooseOpen || chooseClose || chooseEmpty;
+                 }   
+
+            }
+            front=curr;
+        }
+         return front[0];
+    }
