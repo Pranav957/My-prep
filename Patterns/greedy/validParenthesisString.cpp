@@ -1,5 +1,38 @@
 class Solution {
 public:
+    bool checkValidString(string s) {
+        int mn=0, mx=0;
+        for(int i=0;i<s.length();i++)
+        {
+            if(s[i]=='(')
+            {
+              mx=mx+1;
+              mn=mn+1;
+            }
+            if(s[i]==')')
+            {
+               mn=mn-1;
+               mx=mx-1;
+            } 
+            if(s[i]=='*')
+            {
+        
+               mn=mn-1;
+               mx+=1;  
+            }
+            if(mn<0)
+             mn=0;
+            if(mx<0)
+             return false; 
+        }
+        return mn==0;
+    }
+};
+
+
+******************************************************************************************************************
+class Solution {
+public:
     bool checkValidString(string s,int ind, int cnt,int n,vector<vector<int>>& dp) {  //time complexity will be n^2 as filling whole grid n*n 
         if(cnt<0)                                                                     // space complexity n^2 grid + n asymptotic stack space
          return false;
