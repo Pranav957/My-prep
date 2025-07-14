@@ -21,4 +21,22 @@ bool isBalanced(string expression)
    }
    return true;
 }
- 
+ ***********************************************************************
+bool isBalanced(string expression) 
+{
+    int cnt = 0;
+    
+    for(int i = 0; i < expression.length(); i++)
+    {
+        if(expression[i] == '(')
+            cnt++;
+        else if(expression[i] == ')')
+        {
+            cnt--;
+            if(cnt < 0)
+                return false;
+        }
+    }
+    
+    return cnt == 0;
+}
