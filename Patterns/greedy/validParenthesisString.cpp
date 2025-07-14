@@ -1,7 +1,7 @@
 class Solution {
 public:
-    bool checkValidString(string s,int ind, int cnt,int n,vector<vector<int>>& dp) {
-        if(cnt<0)
+    bool checkValidString(string s,int ind, int cnt,int n,vector<vector<int>>& dp) {  //time complexity will be n^2 as filling whole grid n*n 
+        if(cnt<0)                                                                     // space complexity n^2 grid + n asymptotic stack space
          return false;
 
          if(ind==n)
