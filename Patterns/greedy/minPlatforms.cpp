@@ -43,3 +43,24 @@
     }
     return maxPlatforms;
 }
+
+int findPlatform(vector<int>& arr, vector<int>& dep) {
+    int n = arr.size();
+
+    int minTime = *min_element(arr.begin(), arr.end());
+    int maxTime = *max_element(dep.begin(), dep.end());
+
+    int maxPlatforms = 0;
+
+    for (int t = minTime; t <= maxTime; t++) {
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] <= t && dep[i] >= t) {
+                count++;
+            }
+        }
+        maxPlatforms = max(maxPlatforms, count);
+    }
+
+    return maxPlatforms;
+}
