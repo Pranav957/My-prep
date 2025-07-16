@@ -32,3 +32,19 @@
          
          return {cnt,maxProfit};
     }
+
+*****************************************************************************************************************************************************************************
+        for(int i=0;i<n;i++)
+         {
+             int day=v[i].second;
+             int profit=v[i].first;
+            //  cout<<"day"<<day<<"profit: "<<profit<<endl;
+             while(days[day]!=-1)
+             {
+                  day--;
+             }
+             if(day==0)continue;
+             days[day]=1;
+             cnt++;
+             maxProfit+=profit;
+         }
