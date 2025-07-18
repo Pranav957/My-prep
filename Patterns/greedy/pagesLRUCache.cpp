@@ -1,5 +1,52 @@
 // User function Template for C++
 
+// User function Template for C++
+
+class Solution {
+  public:
+    int pageFaults(int N, int C, int pages[]) {
+        // code here
+        unordered_set<int> st;
+        unordered_map<int,int> mp;
+        int cnt=0;
+      for(int i=0;i<N;i++)
+      {
+          if(st.size()<C)
+           {
+               if(st.find(pages[i])==st.end())
+               {
+                   st.insert(pages[i]);
+                   cnt++; 
+               }
+               mp[pages[i]]=i;
+            
+           }
+           else{
+               if(st.find(pages[i])==st.end())
+               {
+                   int mn=INT_MAX;
+                   int val;
+                   for(auto it=st.begin();it!=st.end();it++)
+                   {
+                     if(mp[*it]<mn)
+                      {
+                          mn=mp[*it];
+                          val=*it;
+                      }
+                   }
+                   st.erase(val);
+                   st.insert(pages[i]);
+                   cnt++;
+               }
+               mp[pages[i]]=i;
+           }
+      }
+      return cnt; 
+    }
+};
+
+
+**************************************************************************************************************************************8
 class Solution {
   public:
     int pageFaults(int N, int c, int pages[]) {
