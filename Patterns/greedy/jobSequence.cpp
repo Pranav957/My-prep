@@ -1,3 +1,52 @@
+// either sort with max profit first anf=d keep placing maxPrrofit in the array 
+//sort with deadline ascending 
+
+class Solution {   
+  public:
+    vector<int> jobSequencing(vector<int> &deadline, vector<int> &profit) {
+        // code here
+        int n=deadline.size();
+        int maxProfit=0;
+        
+        vector<pair<int,int>> jobs;
+        for(int i=0;i<n;i++)
+         jobs.push_back({deadline[i],profit[i]});
+         
+         sort(jobs.begin(),jobs.end());
+         
+          priority_queue<int, vector<int>, greater<int>> pq;
+          
+          for(const auto& job: jobs)
+          {
+              if(job.first>pq.size())
+               pq.push(job.second);
+               
+               else if(!pq.empty() && job.second>pq.top())
+               {
+                    pq.pop();
+                   pq.push(job.second);
+               }
+               
+          }
+          int cnt=0;
+          
+          while(!pq.empty())
+           {
+               maxProfit+=pq.top();
+               pq.pop();
+               cnt++;
+           }
+           
+           return {cnt,maxProfit};
+         
+        
+    }
+};
+*******************8888888888888888******************************************************************************************************************
+
+
+
+
     vector<int> jobSequencing(vector<int> &deadline, vector<int> &profit) {
         // code here
         int n=deadline.size();
