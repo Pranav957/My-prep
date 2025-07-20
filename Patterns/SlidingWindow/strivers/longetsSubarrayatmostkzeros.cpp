@@ -23,3 +23,25 @@
         return longest;
     }
 };
+*******************************************************************************************88
+    class Solution {
+public:
+    int longestOnes(vector<int>& nums, int k) {
+        int longest=0;
+        for(int i=0;i<nums.size();i++)
+        {
+            int zeros=0;
+            for(int j=i;j<nums.size();j++)
+            {
+                if(nums[j]==0)
+                 zeros++;
+              if(zeros<=k)
+                 longest=max(longest,j-i+1);
+              else    
+                break;
+                
+            }
+        }
+        return longest;
+    }
+};
