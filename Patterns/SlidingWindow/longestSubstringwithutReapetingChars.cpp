@@ -17,7 +17,7 @@ bool isUnique(string s,int i,int j)
         {
             for(int j=i;j<s.length();j++)
             {
-                if(isUnique(s,i,j))
+                if(isUnique(s,i,j))  // instead of isUnique can use hash[256} and if lement exists already then brak the loop;
                  maxLength=max(maxLength,j-i+1);
             }
         }
@@ -32,7 +32,7 @@ bool isUnique(string s,int i,int j)
         {
             while(setA.count(s[right]))
             {
-                setA.erase(setA.find(s[left]));
+                setA.erase(setA.find(s[left]));   //can use hash[256} to store the index of l and can directly take l to 1more than that position
                 left++;
             }
 
