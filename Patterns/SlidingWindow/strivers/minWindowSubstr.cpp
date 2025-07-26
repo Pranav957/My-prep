@@ -2,6 +2,42 @@ class Solution {
 public:
     string minWindow(string s, string t) {
         //  unordered_map<char,int> mp;
+          int n=s.length(),m=t.length();
+          int minLength=INT_MAX;
+          int startIndx=-1;
+
+          int mp[256]={0};
+            for(int i=0;i<m;i++)
+               mp[t[i]]++;
+           int left=0,cnt=0;
+           for(int r=0;r<n;r++)
+           {
+              if(mp[s[r]]>0)
+               cnt++;
+              mp[s[r]]--;
+              while(cnt==m)
+              {
+                if(r-left+1<minLength)
+                {
+                    minLength=r-left+1;
+                    startIndx=left;
+                }
+                mp[s[left]]++;
+                if(mp[s[left]]==1)
+                  cnt--;
+                left++;
+              }  
+           }    
+          
+        
+         return (startIndx == -1) ? "" : s.substr(startIndx, minLength);
+    }
+};
+***************************************************************************************************
+class Solution {
+public:
+    string minWindow(string s, string t) {
+        //  unordered_map<char,int> mp;
           int n=s.length();
           string ans="";
           int minLength=INT_MAX;
