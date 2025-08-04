@@ -17,7 +17,7 @@
  }
 vector<vector<int>> getUniqueSubsets(vector<int>& arr) {
     // Write Your Code Here  
-    vector<vector<int>> ans;
+    vector<vector<int>> ans; // sorting required here
     vector<int> temp;
     getUniqueSubsets(arr,ans,temp,0);  
     return ans;
