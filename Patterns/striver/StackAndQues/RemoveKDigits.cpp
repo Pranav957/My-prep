@@ -16,7 +16,7 @@ public:
             st.push(nums[i]);
         }
         
-        while(k>0 && !st.empty())
+        while(k>0 && !st.empty()) //edgecase3 if still k >0 means for example  "123456"
        {
          st.pop();
          k--;
@@ -31,13 +31,13 @@ public:
 
        reverse(str.begin(),str.end());  // cpp consider string as part of stl;
        int i=0;
-       while(!str.empty() && str[0]=='0')
+       while(!str.empty() && str[0]=='0') //edgecase 2 if "00200"
         {
             str=str.substr(1);
             i++;
         } 
 
-        if(str=="")
+        if(str=="")   //egdecase1 if k==nums.size()
           return "0";
 
      return str;
