@@ -1,3 +1,4 @@
+// Min stack can also be implemented in O(1) using stack<pair<int,int>> where first element is stack element and second is minimum found uptill now
 class MinStack {
     stack<long long> st;
     long long mini;
