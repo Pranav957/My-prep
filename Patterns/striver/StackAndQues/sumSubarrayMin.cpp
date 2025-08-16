@@ -7,7 +7,7 @@ public:
       vector<int>leftMin(n,-1);
       for(int i=0;i<n;i++)
       {
-        while(!st.empty()&& arr[st.top()]>=arr[i])
+        while(!st.empty()&& arr[st.top()]>=arr[i])   //= is used to handle edge case where arr=[1,1]  (1,1) avoid considering twice
           st.pop();
         if(st.empty())leftMin[i]=-1;
         else leftMin[i]=st.top();
