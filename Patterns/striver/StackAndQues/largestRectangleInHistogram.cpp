@@ -1,5 +1,36 @@
 class Solution {
 public:
+    int largestRectangleArea(vector<int>& heights) {
+        stack<int> st;
+        int maxArea=0,n=heights.size();
+
+        for(int i=0;i<heights.size();i++)
+        {
+            while(!st.empty() && heights[st.top()]>heights[i])
+            {
+                int idx=st.top();
+                st.pop();
+                int nextSmall=i;
+                int prevSmall=st.empty()? -1:st.top();
+                int area=heights[idx]*(nextSmall-prevSmall-1);
+                maxArea=max(maxArea,area);
+            }
+            st.push(i);
+        }
+        while(!st.empty())
+        {
+            int nextSmall=n;
+            int idx=st.top();st.pop();
+            int prevSmall=st.empty()? -1:st.top();
+            int area=heights[idx]*(nextSmall-prevSmall-1);
+                maxArea=max(maxArea,area);
+        }
+        return maxArea;
+    }
+};
+**********************************************************************************************************************************
+class Solution {
+public:
    vector<int> getLeftMin(vector<int>& arr,int n)
     {
       stack<int> st;
