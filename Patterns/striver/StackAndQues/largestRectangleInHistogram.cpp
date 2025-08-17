@@ -21,7 +21,7 @@ public:
       vector<int>rightMin(n,n);
       for(int i=n-1;i>=0;i--)
       {
-        while(!st.empty()&& arr[st.top()]>=arr[i])
+        while(!st.empty()&& arr[st.top()]>=arr[i])   // while(!st.empty()&& arr[st.top()]>arr[i])
           st.pop();
         if(st.empty())rightMin[i]=n;
         else rightMin[i]=st.top();
