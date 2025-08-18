@@ -1,4 +1,4 @@
-class Solution {
+class Solution {  //whenever greateset or smallest needed in constant time think of monotonic stack
 public:
     vector<int> maxSlidingWindow(vector<int>& nums, int k) {
         vector<int> ans;
