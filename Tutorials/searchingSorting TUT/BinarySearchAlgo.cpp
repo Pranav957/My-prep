@@ -20,7 +20,7 @@ int binarySearch(int * input, int element,int i,int j)
     if(i>j)
       return -1;
 
-      int mid=(i+j)/2;
+      int mid=(i+j)/2;          //low + (high-low)/2
 
       if(element==input[mid])
        return mid;
