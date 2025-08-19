@@ -1,3 +1,5 @@
+//smallest index such a that arr[ind]>= x;lower bound
+//smallest index such a that arr[ind]>x; upper bound
 class Solution {
   public:
      int lowerBound(vector<int>& arr, int target,int low,int high,int n)
