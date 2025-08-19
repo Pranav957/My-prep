@@ -20,6 +20,8 @@ class Solution {
      }
     int lowerBound(vector<int>& arr, int target) {
         // code here
-        return lowerBound(arr,target,0,arr.size()-1,arr.size());
+        // return lowerBound(arr,target,0,arr.size()-1,arr.size());
+       int ind=lower_bound(arr.begin(),arr.end(),target)-arr.begin();
+       return ind;
     }
 };
