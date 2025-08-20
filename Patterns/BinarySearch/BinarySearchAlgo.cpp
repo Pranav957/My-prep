@@ -1,4 +1,4 @@
-int binarySearch(int * input, int element,int i,int j)
+int binarySearch(int * input, int element,int i,int j)   //BinarySearch is all about discarding one half so try to eliminate one part
 {
     while(i<=j)
     {
