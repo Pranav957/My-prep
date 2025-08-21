@@ -25,3 +25,19 @@ class Solution {
         return ans;
     }
 };
+*******************************************************************************
+class Solution {
+  public:
+    int nthRoot(int n, int m) {
+        // Code here
+       for(int i=1;i<=m;i++)
+       {
+           if(pow(i,n)==m)
+            return i;
+          
+          if(pow(i,n)>m)
+           break;
+       }
+       return -1;
+    }
+};
