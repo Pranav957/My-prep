@@ -1,3 +1,7 @@
+//[ 7 8 9 10 11 12 13]
+//  * * * *  *   ^ ^          *(not possible) ^(possible)
+//low              high       high and low ends at opposite polarity hence low will end at lowest possible
+
 class Solution {
 public:
   bool isPossible(vector<int>& bloomDay, int m ,int k,int day)
