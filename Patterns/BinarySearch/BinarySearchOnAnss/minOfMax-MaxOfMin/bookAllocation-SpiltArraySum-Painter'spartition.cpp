@@ -71,3 +71,7 @@ class Solution {
         return ans; //return low
     }
 };
+************************************************SpiltArraySum*******************************
+  int splitArray(vector<int>& nums, int k) {
+        return findPages(nums,k);
+    }
