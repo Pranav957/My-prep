@@ -1,3 +1,4 @@
+//these type of problem contains find Min or find max
 class Solution {
 public:
    long long getTime(vector<int>& piles, int k) {
