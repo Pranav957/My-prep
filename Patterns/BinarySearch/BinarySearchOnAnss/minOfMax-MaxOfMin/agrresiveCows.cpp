@@ -75,6 +75,6 @@ class Solution {
              else
               high=mid-1;
          }
-         return high;
+         return high; //due to polarization high started with not possible and ended at highest possible
     }
 };
