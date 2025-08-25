@@ -88,6 +88,10 @@ public:
     }
 };
 **********************************************************************************************************
+    Lambda functuons in cpp
+    [captures](parameters) -> return_type {
+    // function body
+}
 int threshold = 2;
 sort(v.begin(), v.end(), [threshold](int a, int b){
     return (a % threshold) < (b % threshold);
