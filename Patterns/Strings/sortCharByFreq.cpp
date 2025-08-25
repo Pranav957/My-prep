@@ -59,6 +59,11 @@ public:
         return result;
     }
 };
+priority_queue expects a type as its comparator, not just a function.
+
+That’s why we define a struct with operator() → this makes comp a functor (an object that behaves like a function).
+
+priority_queue will internally create an object of comp and call it like comp()(a,b).
 ***************************************using vector***************************************************************************
   //Approach-1 (Using Simple vector of pair and sorting it -  O(nlogn)
 class Solution {
