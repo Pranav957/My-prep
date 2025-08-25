@@ -87,3 +87,20 @@ public:
         return result;
     }
 };
+**********************************************************************************************************
+int threshold = 2;
+sort(v.begin(), v.end(), [threshold](int a, int b){
+    return (a % threshold) < (b % threshold);
+});
+
+[] → capture nothing.
+
+[=] → capture all outer variables by value (copies).
+
+[&] → capture all outer variables by reference.
+
+[x] → capture variable x by value.
+
+[&x] → capture variable x by reference.
+
+[=, &y] → capture all by value, but y by reference.
