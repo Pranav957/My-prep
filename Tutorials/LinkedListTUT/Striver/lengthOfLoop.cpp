@@ -17,3 +17,33 @@ class Solution {
         return 0;
     }
 };
+******************************************************************************
+class Solution {
+  public:
+    int findLength(Node* fast, Node* slow)
+    {
+        fast=fast->next;
+        int cnt=1;
+        
+        while(slow!=fast)
+        {
+            fast=fast->next;
+            cnt++;
+        }
+        return cnt;
+    }
+    int lengthOfLoop(Node *head) {
+        // Code here
+        Node* fast=head;
+       Node* slow=head;
+
+       while(fast!=NULL && fast->next!=NULL)
+       {
+          fast=fast->next->next;
+          slow=slow->next;
+          if(fast==slow)
+           return findLength(slow,fast);
+       }
+       return 0;
+    }
+};
