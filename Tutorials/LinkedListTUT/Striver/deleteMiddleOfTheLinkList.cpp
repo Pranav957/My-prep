@@ -38,3 +38,28 @@ public:
       delete tempNode;
       return head;
     }
+******************************************************************
+;
+ */
+class Solution {
+public:
+    ListNode* deleteMiddle(ListNode* head) {
+        if(!head || !head->next) return NULL;
+        
+      ListNode* fast=head;
+      ListNode* slow=head;
+
+     fast=fast->next->next;      
+
+      while(fast!=NULL && fast->next!=NULL) 
+      {
+        fast=fast->next->next;
+        slow=slow->next;
+      } 
+
+      ListNode* temp=slow->next;
+      slow->next=temp->next;
+      delete temp;
+      return head;
+    }
+};
