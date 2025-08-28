@@ -1,3 +1,4 @@
+bruteForce :-> count number of 1s 2s 0s and then replace values , two passes will  be required
 class Solution {
   public:
     Node* segregate(Node* head) {
