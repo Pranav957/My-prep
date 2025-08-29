@@ -1,4 +1,5 @@
-
+//if something has to be remembered use hashmap or hashset
+//if new list is to be created create dummayNode instead of handling head and tail
 class Solution {
 public:
     Node* copyRandomList(Node* head) {
