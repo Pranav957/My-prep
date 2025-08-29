@@ -97,6 +97,7 @@ public:
     while (!st.empty()) {
         auto it = st.top();
         st.pop();
+        
         if (it.second == 1) {
             pre.push_back(it.first->data);
             it.second = 2;
