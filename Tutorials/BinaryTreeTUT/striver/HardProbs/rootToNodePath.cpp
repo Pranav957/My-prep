@@ -23,3 +23,27 @@ vector<int> pathInATree(TreeNode<int> *root, int x)
 	return ans;
 
 }
+*******************************************************rootTOLEAFALLPATHS***********************************************************
+	void helper(Node* root,vector<vector<int>>& ans,vector<int> res)
+    {
+        if(root==NULL)return;
+        
+        if(!root->left && !root->right)
+        {
+           res.push_back(root->data);
+           ans.push_back(res);
+           return;
+        }
+        
+        res.push_back(root->data);
+        
+        helper(root->left,ans,res);
+        helper(root->right,ans,res);
+    }
+    vector<vector<int>> Paths(Node* root) {
+        // code here
+        vector<vector<int>> ans;
+        vector<int> res;
+         helper(root,ans,res);
+        return ans;
+    }
