@@ -47,3 +47,27 @@ vector<int> pathInATree(TreeNode<int> *root, int x)
          helper(root,ans,res);
         return ans;
     }
+***********************************************************************************************************8
+	void collectPaths(Node *node, vector<int> &path, vector<vector<int>> &paths)
+{
+    if (node == nullptr)
+        return;
+
+    path.push_back(node->data);
+
+    if (node->left == nullptr && node->right == nullptr)
+    {
+        paths.push_back(path);
+    }
+    else
+    {
+
+        collectPaths(node->left, path, paths);
+        collectPaths(node->right, path, paths);
+    }
+
+    // Backtrack: remove the last element
+    // from the path
+    path.pop_back();
+}
+
