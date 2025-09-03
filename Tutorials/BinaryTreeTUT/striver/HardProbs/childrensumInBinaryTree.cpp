@@ -37,6 +37,6 @@ class Solution {
     int val=0;
     if(root->left)val+=root->left->data;
     if(root->right)val+=root->right->data;
-    if(root->left || root->right)root->data=val;
+    if(root->left || root->right)root->data=val;  //update only if not a leaf node
     
 }
