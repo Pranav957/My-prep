@@ -123,6 +123,14 @@ bool SearchInBST(BinaryTree<int>* root,int x)
          
 }
 
+ // TreeNode* searchBST(TreeNode* root, int val) {
+ //        while(root!=NULL && root->val!=val)
+ //        {
+ //            root=val<root->val?root->left:root->right;
+ //        }
+ //        return root;
+ //    }
+
 void printElementsInRange(BinaryTree<int>* root, int k1,int k2)
 {
     if(root==NULL)
@@ -550,3 +558,4 @@ int main()
 //      cout<<"false"<<endl;
     return 0;
 }
+
