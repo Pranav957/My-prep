@@ -37,7 +37,9 @@ public:
         return kthSmallest(root,n-k+1);
     }
 *********************************************************************************8888
-   int kthLargest(TreeNode* root, int k, int &cnt) {
+  class Solution {
+  public:
+   int kthLargest(Node* root, int k, int &cnt) {
         if (!root) return -1;
 
         // search in left subtree
@@ -45,7 +47,7 @@ public:
         if (right != -1) return right;
 
         cnt++;
-        if (cnt == k) return root->val;
+        if (cnt == k) return root->data;
 
         // search in right subtree
         return kthLargest(root->left, k, cnt);
@@ -54,5 +56,6 @@ public:
     int kthLargest(Node *root, int k) {
         // Your code here
         int cnt = 0;
-        return kthSmallest1(root, k, cnt);
+        return kthLargest(root, k, cnt);
     }
+};
