@@ -39,3 +39,30 @@ int findCeil(Node* root, int x) {
     int ceil = findCeil(root->left, x);
     return (ceil >= x) ? ceil : root->data;
 }
+**********************************************flooR*****************************************
+  class Solution {
+
+  public:
+    int floor(Node* root, int x) {
+        // Code here
+        int floor=-1;
+        while(root)
+        {
+            if(root->data==x)
+            {
+                 floor=root->data;
+                 return floor;
+            }
+             
+             if(root->data<x)
+              {
+                  floor=root->data;
+                 root=root->right;
+              }
+             else
+              root=root->left;
+        }
+        
+        return floor;
+    }
+};
