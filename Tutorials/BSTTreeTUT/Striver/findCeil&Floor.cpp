@@ -66,3 +66,23 @@ int findCeil(Node* root, int x) {
         return floor;
     }
 };
+************************************************************************
+class Solution {
+public:
+    int floor(Node* root, int x) {
+        if (!root) return -1; // or INT_MIN depending on requirements
+
+        if (root->data == x) {
+            return root->data;
+        }
+
+        if (root->data > x) {
+            // floor must be in left subtree
+            return floor(root->left, x);
+        }
+
+        // root->data < x → candidate floor
+        int rightFloor = floor(root->right, x);
+        return (rightFloor != -1 && rightFloor <= x) ? rightFloor : root->data;
+    }
+};
