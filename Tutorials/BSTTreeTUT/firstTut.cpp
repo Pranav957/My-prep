@@ -208,21 +208,19 @@ BSTReturn isBSTMethod(BinaryTree<int>* root)
     return res;
 }
 
-bool isBST3(BinaryTree<int>* root, int min=INT_MIN, int max=INT_MAX)
-{
-    if(root==NULL)
-    {
-        return true;
+  bool isBST3(TreeNode* root, long long min, long long max) {
+        if (!root) return true;
+
+        if (root->val <= min || root->val >= max) 
+            return false;
+
+        return isBST3(root->left, min, root->val) &&
+               isBST3(root->right, root->val, max);
     }
-    
-    if(root->data>max && root->data<min)
-      return false;
-    
-    bool isLeftOk= isBST3(root->left,min,root->data);
-    bool isRightOk= isBST3(root->right,root->data,max);
-    
-    return isLeftOk && isRightOk;
-}
+
+    bool isValidBST(TreeNode* root) {
+        return isBST3(root, LLONG_MIN, LLONG_MAX);
+    }
 
 BinaryTree<int>* constructBST(int a[], int si,int ei)
 {
@@ -558,4 +556,5 @@ int main()
 //      cout<<"false"<<endl;
     return 0;
 }
+
 
