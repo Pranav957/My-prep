@@ -19,3 +19,35 @@ class Solution {
        return count;
     }
 };
+**************************************************************************
+int subarraysWithXorK(vector<int> a, int k) {
+    int n = a.size(); //size of the given array.
+    int cnt = 0;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = i; j < n; j++) {
+            int xorr = 0;
+            for (int K = i; K <= j; K++) {
+                xorr = xorr ^ a[K];
+            }
+
+            if (xorr == k) cnt++;
+        }
+    }
+    return cnt;
+}
+*************************************************************************
+int subarraysWithXorK(vector<int> a, int k) {
+    int n = a.size(); //size of the given array.
+    int cnt = 0;
+
+    for (int i = 0; i < n; i++) {
+        int xorr = 0;
+        for (int j = i; j < n; j++) {
+            xorr = xorr ^ a[j];
+
+            if (xorr == k) cnt++;
+        }
+    }
+    return cnt;
+}
