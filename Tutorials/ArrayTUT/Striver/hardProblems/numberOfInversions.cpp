@@ -9,7 +9,7 @@ int numberOfInversions(vector<int>&a, int n) {
     }
     return cnt;
 }
-*******************************************************************8888
+*******************************************************************8888 // check every subsorted array given buy mergesort & add all gives answer
   int merge(vector<int> &arr, int low, int mid, int high) {
     vector<int> temp; 
     int left = low;     
