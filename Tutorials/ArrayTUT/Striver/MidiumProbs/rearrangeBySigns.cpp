@@ -1,4 +1,4 @@
-vector<int> RearrangebySign(vector<int>A, int n){
+vector<int> RearrangebySign(vector<int>A, int n){   //when even pos and negatives
   vector<int> pos;
   vector<int> neg;
 
@@ -41,7 +41,7 @@ vector<int> RearrangebySign(vector<int>A){
     
 }
 **********************************************************************************
-vector<int> RearrangebySign(vector<int>A, int n){
+vector<int> RearrangebySign(vector<int>A, int n){  //when pos and negatives count is not same
   
   vector<int> pos;
   vector<int> neg;
