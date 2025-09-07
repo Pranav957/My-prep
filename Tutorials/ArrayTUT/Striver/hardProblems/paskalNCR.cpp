@@ -1,4 +1,4 @@
-int findNCR(int n,int r)
+int findNCR(int n,int r)  O(r)
   {
      int res=1;
      for(int i=0;i<r;i++)  // n!/r!*(n-r)!  
