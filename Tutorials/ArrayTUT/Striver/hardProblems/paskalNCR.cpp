@@ -1,7 +1,7 @@
 int findNCR(int n,int r)
   {
      int res=1;
-     for(int i=0;i<r;i++)
+     for(int i=0;i<r;i++)  // n!/r!*(n-r)!  
      {
         res=res*(n-i);
         res=res/i+1;
@@ -9,7 +9,7 @@ int findNCR(int n,int r)
      return res;
   }
 *******************************printNthRow**********************************
-  int findNCR(int n)
+  int findNCR(int n)    //ans* (row-col)/col
   {
      int ans;
      cout<< ans;
