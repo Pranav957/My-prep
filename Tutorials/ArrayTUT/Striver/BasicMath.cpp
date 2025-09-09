@@ -111,5 +111,20 @@ int findGcd(int a, int b) {     //euclidied-> GCD(n1, n2)= GCD(n1-n2,n2) where n
     return a;
 }
 ***********************************************************************************************
+void reverseArray(int arr[], int start, int end) {
+   if (start < end) {
+      swap(arr[start], arr[end]);
+      reverseArray(arr, start + 1, end - 1);
+   }
+}
+*************************************************************
+bool palindrome(int i, string& s){
 
+    if(i>=s.length()/2) return true;
+    
+    if(s[i]!=s[s.length()-i-1]) 
+		return false;
+    
+    return palindrome(i+1,s);
+}
 
