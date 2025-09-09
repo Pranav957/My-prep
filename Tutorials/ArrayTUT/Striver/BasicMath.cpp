@@ -96,9 +96,9 @@ int findGcd(int n1, int n2) {
     return 1;
 }
 
-int findGcd(int a, int b) {
-    while(a > 0 && b > 0) {
-        if(a > b) {
+int findGcd(int a, int b) {     //euclidied-> GCD(n1, n2)= GCD(n1-n2,n2) where n1>n2
+    while(a > 0 && b > 0) {      // (20, 15)->(5,0)=5 till one of the number becomes 0;
+        if(a > b) {             // GCD(a,b)= GCD(a%b,b) where a>b
             a = a % b;
         }
         else {
