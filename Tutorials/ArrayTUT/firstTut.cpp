@@ -1,4 +1,5 @@
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<SWAP ALTERNATE<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	  // array can max have size 10^6 inside main and 10^7 in global
   void swapAlternate (int *arr, int size)
 {
   //Write your code here
@@ -316,3 +317,4 @@ int tripletSum(int *arr, int n, int num)
         }
     }
 }
+
