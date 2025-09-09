@@ -210,4 +210,100 @@ class Solution {
         }
         return ans;
 }
+	******************************************MISSING NUMBER************************************
+int missingNumber(vector<int>&a, int N) {
+
+    //Summation of first N numbers:
+    int sum = (N * (N + 1)) / 2;
+
+    //Summation of all array elements:
+    int s2 = 0;
+    for (int i = 0; i < N - 1; i++) {
+        s2 += a[i];
+    }
+
+    int missingNum = sum - s2;
+    return missingNum;
+}
+int missingNumber(vector<int>&a, int N) {
+
+    int xor1 = 0, xor2 = 0;
+
+    for (int i = 0; i < N - 1; i++) {
+        xor2 = xor2 ^ a[i]; // XOR of array elements
+        xor1 = xor1 ^ (i + 1); //XOR up to [1...N-1]
+    }
+    xor1 = xor1 ^ N; //XOR up to [1...N]
+
+    return (xor1 ^ xor2); // the missing number
+}
+
+int missingNumber(vector<int>&a, int N) {
+
+    int hash[N + 1] = {0}; //hash array
+
+    // storing the frequencies:
+    for (int i = 0; i < N - 1; i++)
+        hash[a[i]]++;
+
+    //checking the freqencies for numbers 1 to N:
+    for (int i = 1; i <= N; i++) {
+        if (hash[i] == 0) {
+            return i;
+        }
+    }
+
+    // The following line will never execute.
+    // It is just to avoid warnings.
+    return -1;
+}
+########################################################################
+int findMaxConsecutiveOnes(vector<int>& nums) {
+        int cnt = 0;
+      int maxi = 0;
+      for (int i = 0; i < nums.size(); i++) {
+        if (nums[i] == 1) {
+          cnt++;
+        } else {
+          cnt = 0;
+        }
+maxi = max(maxi, cnt);
+      }
+      return maxi;
+    }
+***************************************************************
+int getSingleElement(vector<int> &arr) {
+    //size of the array:
+    int n = arr.size();
+
+    // XOR all the elements:
+    int xorr = 0;
+    for (int i = 0; i < n; i++) {
+        xorr = xorr ^ arr[i];
+    }
+    return xorr;
+}
+int getSingleElement(vector<int> &arr) {
+
+    //size of the array:
+    int n = arr.size();
+
+    // Declare the hashmap.
+    // And hash the given array:
+    map<int, int> mpp;
+    for (int i = 0; i < n; i++) {
+        mpp[arr[i]]++;
+    }
+
+    //Find the single element and return the answer:
+    for (auto it : mpp) {
+        if (it.second == 1)
+            return it.first;
+    }
+
+    //This line will never execute
+    //if the array contains a single element.
+    return -1;
+}
+**********************************************************************
 
