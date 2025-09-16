@@ -11,7 +11,7 @@ int findSecondLargest(int arr[], int n)
               secondLarge=largetst;
               largetst=arr[i];
           }
-         else if(arr[i]>secondLarge)
+         else if(arr[i]>secondLarge) //and arr[i]!=largest
            secondLarge=arr[i]; 
     }
     return secondLarge;
