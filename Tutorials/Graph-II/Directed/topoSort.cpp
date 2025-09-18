@@ -1,4 +1,4 @@
-class Solution {
+class Solution { // linear ordering of vertices such a that there is an edge between u and v where u appears before v in that ordering
   public:
     void travelDFS(vector<vector<int>>& edges, vector<bool>& visited, stack<int>& st,int node )
     {
