@@ -1,4 +1,4 @@
-class Solution {
+class Solution { // toposort is possible in DAG only
   public:
     vector<int> topoSort(int V, vector<vector<int>>& edges) {
         
