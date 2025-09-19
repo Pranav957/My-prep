@@ -33,6 +33,30 @@ class Solution {
         return dp[n-1];
     }
 };
+
+************************8space obtimization ****************************************************
+int minCost(vector<int>& height) {
+        int n = height.size();
+        vector<int> dp(n + 1, -1);
+        // return minCost(height, n-1, dp);
+         int prev=0;
+         int prev2=0;
+         
+        
+        for(int i=1;i<n;i++)
+        {
+            int a=abs(height[i] - height[i - 1])+prev;
+            int b=INT_MAX;
+            if(i>=2)
+             b=abs(height[i] - height[i - 2])+prev2;
+            
+           int curr=min(a,b);
+            prev2=prev;
+            prev=curr;
+        }
+        return prev;
+    }
+***************************************************************************************
 //  with k solution
 // class Solution {
 // public:
