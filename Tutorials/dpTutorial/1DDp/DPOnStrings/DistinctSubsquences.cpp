@@ -63,7 +63,7 @@ int numDistinct(string s, string t) {
           for(int i=1;i<m+1;i++)
           {
             curr[0]=1;
-            for(int j=1;j<n+1;j++)
+            for(int j=1;j<n+1;j++) //(as using prev row only can traverse in any direction)
             {
                 if(s[i-1]==t[j-1])
                   curr[j]=(prev[j-1])%MOD+(prev[j])%MOD;
@@ -86,7 +86,7 @@ int numDistinct(string s, string t) {
          prev[0]=1;
           for(int i=1;i<m+1;i++)
           {
-            for(int j=n+1;j>=1;j--) //(as using prev row only can traverse in any direction)
+            for(int j=n+1;j>=1;j--)  // need to treverse reverse only
             {
                 if(s[i-1]==t[j-1])
                   prev[j]=(prev[j-1])%MOD+(prev[j])%MOD;//only using prev row for cal not curr,so updation can be done in same row // can update ith index with ith and i-1 
