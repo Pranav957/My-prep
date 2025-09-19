@@ -21,9 +21,9 @@ public:
          if(s[m-1]==p[n-1] || p[n-1]=='?') 
             return dp[m][n]=isMatch(s,p,m-1,n-1,dp);
            
-         if(p[n-1]=='*')
+         if(p[n-1]=='*')   //ab*  and abdgf
          {
-            int a=isMatch(s,p,m-1,n,dp);
+            int a=isMatch(s,p,m-1,n,dp); 
             int b=isMatch(s,p,m,n-1,dp);
             return dp[m][n]=a|| b;
          }
