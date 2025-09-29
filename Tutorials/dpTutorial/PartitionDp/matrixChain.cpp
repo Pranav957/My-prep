@@ -42,7 +42,7 @@ int matrixMultiplication(vector<int> &arr) {
          
          for(int i=n-1;i>=1;i--)
          {
-             for(int j=i+1;j<=n-1;j++)
+             for(int j=i+1;j<=n-1;j++) // as j always to the right of i
              {    
                  int mini=INT_MAX;
                    for(int k=i;k<j;k++)
