@@ -1,7 +1,7 @@
   public:
-    Function to find the minimum number of platforms required at the
-    railway station such that no train waits.
-    int findPlatform(vector<int>& arr, vector<int>& dep) {
+    //Function to find the minimum number of platforms required at the
+    //railway station such that no train waits.
+    int findPlatform(vector<int>& arr, vector<int>& dep) {// create a new array with sorted time arrivel and departure mixed and traverse it to find max intersection
         // Your code here
         int n=arr.size();
         
