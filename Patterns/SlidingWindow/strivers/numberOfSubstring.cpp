@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int numberOfSubstrings(string s) {
+    int numberOfSubstrings(string s) {   // with every char there is substring that ends
         int lastSeen[3]={-1,-1,-1};
         int cnt=0;
         for(int i=0;i<s.length();i++)
