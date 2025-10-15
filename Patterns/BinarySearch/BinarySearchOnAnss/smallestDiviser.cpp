@@ -9,7 +9,7 @@ public:
        }
        return sum;
     }
-    int smallestDivisor(vector<int>& nums, int threshold) {
+    int smallestDivisor(vector<int>& nums, int threshold) {  // check threashold > min sum when devided by max
        int maxi=*max_element(nums.begin(),nums.end()); 
        int low=1, high=maxi;
        int ans=-1;
