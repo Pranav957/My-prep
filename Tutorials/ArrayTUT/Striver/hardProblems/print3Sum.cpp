@@ -47,7 +47,7 @@ vector<vector<int>> triplet(int n, vector<int> &arr) {
     return ans;
 }
 **************************************************************************
-vector<vector<int>> triplet(int n, vector<int> &arr) {
+vector<vector<int>> triplet(int n, vector<int> &arr) { // here we make sure that third element is not one of arr[i] or arr[j]
     set<vector<int>> st;
 
     for (int i = 0; i < n; i++) {
