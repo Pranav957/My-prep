@@ -11,7 +11,7 @@ int findNCR(int n,int r)  O(r)
 *******************************printNthRow**********************************
   int findNCR(int n)    //ans* (row-col)/col
   {
-     int ans;
+     int ans=1;
      cout<< ans;
      for(int i=1;i<n;i++)
      {
